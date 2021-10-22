@@ -14,4 +14,17 @@
 
 
 /*每个页面公共css */
+@font-face {
+    font-family: 'iconfont';  /* Project id 2811089 */
+    src: url('//at.alicdn.com/t/font_2811089_28rjetuan2h.woff2?t=1634277404693') format('woff2'),
+         url('//at.alicdn.com/t/font_2811089_28rjetuan2h.woff?t=1634277404693') format('woff'),
+         url('//at.alicdn.com/t/font_2811089_28rjetuan2h.ttf?t=1634277404693') format('truetype');
+}
+.iconfont{
+      font-family: "iconfont"!important;
+      /* font-size: 0.16rem; */
+      font-style: normal;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+}
 
