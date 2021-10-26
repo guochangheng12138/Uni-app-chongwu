@@ -24,9 +24,6 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.status_bar.data-v-92bb8f34 {
-  height: 38rpx;
-}
 .content.data-v-92bb8f34 {
   display: flex;
   flex-direction: column;

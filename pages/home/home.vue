@@ -1,7 +1,6 @@
 <template>
 	<view class="content">
-		<view class="status_bar"><!-- 这里是状态栏 --></view>
-		<uni-nav-bar class="content_nav" fixed="true">
+		<uni-nav-bar class="content_nav" fixed="true" statusBar="true" shadow="true">
 			<input type="text" value="" class="content_nav_input" />
 			<view slot="left" class="iconfont content_nav_left">&#xe634;</view>
 		</uni-nav-bar>
@@ -101,9 +100,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.status_bar {
-	height: 38rpx;
-}
 .content {
 	display: flex;
 	flex-direction: column;

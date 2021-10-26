@@ -31,7 +31,12 @@ export default {
 
 <style lang="scss" scoped>
 .content_petinfo {
-	// width: 100%;
+	width: 95%;
+	// 条件编译
+	/* #ifndef H5*/
+	width: 100%;
+	/* #endif*/
+	margin: 0 auto 0;
 	padding-bottom: 50rpx;
 	&_item {
 		border-radius: 20rpx;

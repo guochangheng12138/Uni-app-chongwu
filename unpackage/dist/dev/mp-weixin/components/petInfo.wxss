@@ -25,6 +25,9 @@
 /* 透明度 */
 /* 文章场景相关 */
 .content_petinfo.data-v-53fc1482 {
+  width: 95%;
+  width: 100%;
+  margin: 0 auto 0;
   padding-bottom: 50rpx;
 }
 .content_petinfo_item.data-v-53fc1482 {
