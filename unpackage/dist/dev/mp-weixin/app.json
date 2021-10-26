@@ -3,7 +3,10 @@
     "pages/home/home",
     "pages/release/release",
     "pages/store/store",
-    "pages/my/my"
+    "pages/my/my",
+    "pages/home/blacklist",
+    "pages/home/report",
+    "pages/home/lookup"
   ],
   "subPackages": [],
   "window": {

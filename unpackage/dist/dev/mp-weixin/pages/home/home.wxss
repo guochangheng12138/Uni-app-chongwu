@@ -39,7 +39,9 @@
 .content_nav_input.data-v-92bb8f34 {
   width: 85%;
   height: 60rpx;
-  box-shadow: 0 0 10rpx 0 #c0c0c0;
+  box-shadow: 0 0 0 4rpx #c8c7cc;
+  outline: none;
+  border: none;
 }
 .content_nav_left.data-v-92bb8f34 {
   width: 100%;

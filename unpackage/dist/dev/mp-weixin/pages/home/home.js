@@ -104,7 +104,7 @@ var components
 try {
   components = {
     uniNavBar: function() {
-      return __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ 38))
+      return __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ 60))
     }
   }
 } catch (e) {
@@ -159,8 +159,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var uniNavBar = function uniNavBar() {__webpack_require__.e(/*! require.ensure | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then((function () {return resolve(__webpack_require__(/*! @/components/uni-nav-bar/uni-nav-bar.vue */ 38));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var petInfo = function petInfo() {__webpack_require__.e(/*! require.ensure | components/petInfo */ "components/petInfo").then((function () {return resolve(__webpack_require__(/*! @/components/petInfo.vue */ 56));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
-
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var uniNavBar = function uniNavBar() {__webpack_require__.e(/*! require.ensure | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then((function () {return resolve(__webpack_require__(/*! @/components/uni-nav-bar/uni-nav-bar.vue */ 60));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var petInfo = function petInfo() {__webpack_require__.e(/*! require.ensure | components/petInfo */ "components/petInfo").then((function () {return resolve(__webpack_require__(/*! @/components/petInfo.vue */ 67));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
@@ -218,7 +217,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
     return {
       title: 'Hello2',
       list: [
-      { imgurl: '../../static/home/list/unname.png', text: '黑名单' },
+      { imgurl: '../../static/home/list/unname.png', text: '黑名单', url: './blacklist' },
       { imgurl: '../../static/home/list/heart.png', text: '领养' },
       { imgurl: '../../static/home/list/pet.png', text: '寻宠物' },
       { imgurl: '../../static/home/list/talk.png', text: '话题' },
@@ -250,13 +249,15 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
     handletypeselect: function handletypeselect(index) {
       this.typelist[index].click = true;
       this.curentIndex = index;
-      // for(let item in this.typelist){
-      // 	console.log(item)
-      // 	// item.click=false
-      // }
+    },
+    handlelistgo: function handlelistgo(index) {
+      uni.navigateTo({
+        url: index });
+
     } },
 
   onLoad: function onLoad() {} };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 /* 18 */

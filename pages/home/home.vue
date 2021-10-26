@@ -8,8 +8,8 @@
 		<image class="content_banner" src="/static/home/banner/banner.png"></image>
 
 		<view class="content_list">
-			<view class="content_list_item" v-for="(item, index) in list" :key="index">
-				<image :src="item.imgurl" mode="" class="content_list_item_img"></image>
+			<view class="content_list_item" v-for="(item, index) in list" :key="index" @click="handlelistgo(item.url)">
+				<image :src="item.imgurl" class="content_list_item_img" ></image>
 				<text class="content_list_item_text">{{ item.text }}</text>
 			</view>
 		</view>
@@ -39,7 +39,6 @@
 		</view>
 
 		<petInfo />
-
 	</view>
 </template>
 
@@ -57,7 +56,7 @@ export default {
 		return {
 			title: 'Hello2',
 			list: [
-				{ imgurl: '../../static/home/list/unname.png', text: '黑名单' },
+				{ imgurl: '../../static/home/list/unname.png', text: '黑名单', url: './blacklist' },
 				{ imgurl: '../../static/home/list/heart.png', text: '领养' },
 				{ imgurl: '../../static/home/list/pet.png', text: '寻宠物' },
 				{ imgurl: '../../static/home/list/talk.png', text: '话题' },
@@ -89,10 +88,11 @@ export default {
 		handletypeselect(index) {
 			this.typelist[index].click = true;
 			this.curentIndex = index;
-			// for(let item in this.typelist){
-			// 	console.log(item)
-			// 	// item.click=false
-			// }
+		},
+		handlelistgo(index){
+			uni.navigateTo({
+			    url: index
+			});
 		}
 	},
 	onLoad() {}
@@ -113,7 +113,9 @@ export default {
 		&_input {
 			width: 85%;
 			height: 60rpx;
-			box-shadow: 0 0 10rpx 0 $uni-text-color-disable;
+			box-shadow: 0 0 0 4rpx $uni-border-color;
+			outline: none;
+			border: none;
 		}
 		&_left {
 			width: 100%;
