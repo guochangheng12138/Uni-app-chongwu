@@ -56,7 +56,9 @@ export default {
 	},
 	methods: {
 		goback() {
-			uni.navigateBack();
+			uni.navigateTo({
+				url: "./blacklist"
+			});
 		},
 		
 		handlepeopleselect1() {
@@ -86,14 +88,14 @@ export default {
 			        'custom-header': 'hello' //自定义请求头信息
 			    },
 			    data: {
-					  id:"this.id",
-					  sex:"this.sex",
-					  info:"this.info",
-					  area:"this.area",
-					  idcard:"this.idcard",
-					  mobile:"this.mobile",
-					  reason:"this.reason",
-					  yourtel:"this.yourtel"
+					  id:this.id,
+					  sex:this.sex,
+					  info:this.info,
+					  area:this.area,
+					  idcard:this.idcard,
+					  mobile:this.mobile,
+					  reason:this.reason,
+					  yourtel:this.yourtel
 			    },
 			    success: (res) => {
 			        console.log(1);

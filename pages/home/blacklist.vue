@@ -9,12 +9,14 @@
 			<view class="content_top_img">
 				<image @click="handlelistgo1()" src="../../static/blacklist/report.png" class="content_top_img_item" mode=""></image>
 				<image @click="handlelistgo2()" src="../../static/blacklist/lookup.png" class="content_top_img_item" mode=""></image>
-				<image @click="handlelistgo3()" src="../../static/blacklist/forward.png" class="content_top_img_item" mode=""></image>
+				<image src="../../static/blacklist/forward.png" class="content_top_img_item" mode=""></image>
+				<!-- <image @click="handlelistgo3()" src="../../static/blacklist/forward.png" class="content_top_img_item" mode=""></image> -->
 			</view>
 			<view class="content_top_text">
 				<view @click="handlelistgo1()">举报</view>
 				<view @click="handlelistgo2()">查询</view>
-				<view @click="handlelistgo3()">转发</view>
+				<!-- <view @click="handlelistgo3()">转发</view> -->
+				<view>转发</view>
 			</view>
 		</view>
 
@@ -57,11 +59,14 @@ export default {
 		return {
 			curentIndex: true,
 			blacklist: []
+			// num: this.$store.state.num
 		};
 	},
 	methods: {
 		goback() {
-			uni.navigateBack();
+			uni.switchTab({
+				url: './home'
+			});
 		},
 		handletypeselect1() {
 			this.curentIndex = true;
@@ -83,17 +88,21 @@ export default {
 		},
 		handlelistgo1() {
 			uni.navigateTo({
-				url: "./report"
+				url: './report'
 			});
-		},	handlelistgo2() {
+		},
+		handlelistgo2() {
 			uni.navigateTo({
-				url: "./lookup"
-			});
-		},	handlelistgo3() {
-			uni.navigateTo({
-				url: "./forward"
+				url: './lookup'
 			});
 		}
+		// handlelistgo3() {
+		// 	this.$store.commit('jiayi');
+		// 	// 需要重复新赋值,不会自动响应,也可以使用computed
+		// 	this.num=this.$store.state.num
+		// 	//
+		// 	this.$store.commit("blacklistshow",[this.blacklist,this.curentIndex])
+		// }
 	},
 	onShow() {
 		this.handletypeselect1();

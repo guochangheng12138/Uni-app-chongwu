@@ -9,7 +9,7 @@
 
 		<view class="content_list">
 			<view class="content_list_item" v-for="(item, index) in list" :key="index" @click="handlelistgo(item.url)">
-				<image :src="item.imgurl" class="content_list_item_img" ></image>
+				<image :src="item.imgurl" class="content_list_item_img"></image>
 				<text class="content_list_item_text">{{ item.text }}</text>
 			</view>
 		</view>
@@ -59,7 +59,7 @@ export default {
 				{ imgurl: '../../static/home/list/unname.png', text: '黑名单', url: './blacklist' },
 				{ imgurl: '../../static/home/list/heart.png', text: '领养' },
 				{ imgurl: '../../static/home/list/pet.png', text: '寻宠物' },
-				{ imgurl: '../../static/home/list/talk.png', text: '话题' },
+				{ imgurl: '../../static/home/list/talk.png', text: '话题' ,url: './talk' },
 				{ imgurl: '../../static/home/list/wash.png', text: '洗澡' }
 			],
 			// 筛选列表
@@ -89,13 +89,16 @@ export default {
 			this.typelist[index].click = true;
 			this.curentIndex = index;
 		},
-		handlelistgo(index){
+		handlelistgo(index) {
 			uni.navigateTo({
-			    url: index
+				url: index
 			});
 		}
 	},
-	onLoad() {}
+	onLoad() {
+	},
+	onShow() {
+	}
 };
 </script>
 
@@ -113,9 +116,10 @@ export default {
 		&_input {
 			width: 85%;
 			height: 60rpx;
-			box-shadow: 0 0 0 4rpx $uni-border-color;
 			outline: none;
 			border: none;
+			padding-left: 20rpx;
+			box-shadow: 0 0 3rpx 1rpx $uni-border-color;
 		}
 		&_left {
 			width: 100%;

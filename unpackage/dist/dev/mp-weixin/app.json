@@ -6,7 +6,9 @@
     "pages/my/my",
     "pages/home/blacklist",
     "pages/home/report",
-    "pages/home/lookup"
+    "pages/home/lookup",
+    "pages/home/talk",
+    "pages/home/talkinfo"
   ],
   "subPackages": [],
   "window": {
@@ -47,6 +49,5 @@
       }
     ]
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap.json"
+  "usingComponents": {}
 }

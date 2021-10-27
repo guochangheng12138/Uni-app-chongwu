@@ -39,9 +39,10 @@
 .content_nav_input.data-v-92bb8f34 {
   width: 85%;
   height: 60rpx;
-  box-shadow: 0 0 0 4rpx #c8c7cc;
   outline: none;
   border: none;
+  padding-left: 20rpx;
+  box-shadow: 0 0 3rpx 1rpx #c8c7cc;
 }
 .content_nav_left.data-v-92bb8f34 {
   width: 100%;
