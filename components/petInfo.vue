@@ -1,19 +1,20 @@
 <template>
 	<view class="content_petinfo">
 		<view class="content_petinfo_item">
-			<image src="../static/home/petInfo/petInfo.png" mode="" class="content_petinfo_item_img"></image>
+			<image :src=item.imgurl mode="" class="content_petinfo_item_img"></image>
 			<view class="content_petinfo_item_info">
 				<view class="content_petinfo_item_info_top">
 					<view class="content_petinfo_item_info_top_left">
-						<view class="content_petinfo_item_info_top_left_a">小奶狗一个月</view>
-						<view class="content_petinfo_item_info_top_left_b">拣来的时候还没出满月</view>
+						<view class="content_petinfo_item_info_top_left_a">{{item.title}}</view>
+						<view class="content_petinfo_item_info_top_left_b">{{item.info}}</view>
 					</view>
-					<view class="content_petinfo_item_info_top_right iconfont">&#xe670;</view>
+					<view class="content_petinfo_item_info_top_right iconfont" v-if="item.type=='dog'">&#xe670;</view>
+					<view class="content_petinfo_item_info_top_right iconfont" v-if="item.type=='cat'">&#xe69e;</view>
 				</view>
 				<view class="content_petinfo_item_info_under">
-					<view class="content_petinfo_item_info_under_it content_petinfo_item_info_under_a">未免疫</view>
-					<view class="content_petinfo_item_info_under_it content_petinfo_item_info_under_b">未驱虫</view>
-					<view class="content_petinfo_item_info_under_it content_petinfo_item_info_under_c">未绝育</view>
+					<view class="content_petinfo_item_info_under_it content_petinfo_item_info_under_a" v-if="item.aaa==true">未免疫</view>
+					<view class="content_petinfo_item_info_under_it content_petinfo_item_info_under_b" v-if="item.bbb==true">未驱虫</view>
+					<view class="content_petinfo_item_info_under_it content_petinfo_item_info_under_c" v-if="item.ccc==true">未绝育</view>
 				</view>
 			</view>
 		</view>
@@ -23,6 +24,7 @@
 <script>
 export default {
 	name: 'petInfo',
+	props:["item"],
 	data() {
 		return {};
 	}
@@ -32,16 +34,12 @@ export default {
 <style lang="scss" scoped>
 .content_petinfo {
 	width: 95%;
-	// 条件编译
-	/* #ifndef H5*/
-	width: 100%;
-	/* #endif*/
 	margin: 0 auto 0;
 	padding-bottom: 50rpx;
 	&_item {
 		border-radius: 20rpx;
 		height: 300rpx;
-		margin-bottom: 20rpx;
+		margin-bottom: 0rpx;
 		background-color: white;
 		display: flex;
 		align-items: center;

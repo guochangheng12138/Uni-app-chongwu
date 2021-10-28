@@ -24,80 +24,80 @@
 				<view class="content_store_text_c">查看详情</view>
 			</view>
 		</view>
+		<view class="content_tem"><selectInfo class="" @handlelistchange="handlelistchangeF" /></view>
 
-		<view class="content_select">
-			<view
-				v-for="(item, index) in typelist"
-				:key="index"
-				:class="['content_select_item', curentIndex === index ? 'content_select_item_click' : '']"
-				@click="handletypeselect(index)"
-			>
-				<view class="content_select_item_text">{{ item.name }}</view>
-				<view class="content_select_item_under" v-show="curentIndex === index"></view>
-			</view>
-			<view class="content_select_item">筛选></view>
-		</view>
-
-		<petInfo />
+		<view class="content_petlist" v-for="(item, index) in petlist" :key="index"><petInfo :item="item" /></view>
 	</view>
 </template>
 
 <script>
 import uniNavBar from '@/components/uni-nav-bar/uni-nav-bar.vue';
+import selectInfo from '@/components/selectInfo.vue';
 import petInfo from '@/components/petInfo.vue';
 
 export default {
 	name: 'home',
 	components: {
 		uniNavBar,
+		selectInfo,
 		petInfo
 	},
 	data() {
 		return {
-			title: 'Hello2',
+			// 分页列表
 			list: [
 				{ imgurl: '../../static/home/list/unname.png', text: '黑名单', url: './blacklist' },
-				{ imgurl: '../../static/home/list/heart.png', text: '领养' },
+				{ imgurl: '../../static/home/list/heart.png', text: '领养', url: './adopt' },
 				{ imgurl: '../../static/home/list/pet.png', text: '寻宠物' },
-				{ imgurl: '../../static/home/list/talk.png', text: '话题' ,url: './talk' },
+				{ imgurl: '../../static/home/list/talk.png', text: '话题', url: './talk' },
 				{ imgurl: '../../static/home/list/wash.png', text: '洗澡' }
 			],
-			// 筛选列表
-			curentIndex: 0,
-			type: 'dog',
-			typelist: [
-				{
-					name: '狗狗',
-					type: 'dog',
-					click: true
-				},
-				{
-					name: '猫咪',
-					type: 'cat',
-					click: false
-				},
-				{
-					name: '其它',
-					type: 'elsepet',
-					click: false
-				}
-			]
+			//宠物列表
+			petlistall: [],
+			petlist: [],
+			type: 'dog'
 		};
 	},
 	methods: {
-		handletypeselect(index) {
-			this.typelist[index].click = true;
-			this.curentIndex = index;
-		},
+		// 分页跳转
 		handlelistgo(index) {
 			uni.navigateTo({
 				url: index
 			});
+		},
+		//请求全部宠物列表，及默认小狗列表
+		petlistrequest() {
+			uni.request({
+				url: 'https://www.fastmock.site/mock/e2ce4dd970cec7f48ded6abc9b324290/chongwu/adoptlist',
+				success: res => {
+					//全部宠物列表
+					this.petlistall = res.data.data;
+					//默认显示小狗列表
+					const arr = [];
+					for (let i in this.petlistall) {
+						if (this.petlistall[i].type == this.type) {
+							arr.push(this.petlistall[i]);
+						}
+					}
+					this.petlist = arr;
+				}
+			});
+		},
+		// 被子组件绑定的方法,切换宠物列表显示
+		handlelistchangeF(data) {
+			this.type = data;
+			const arr = [];
+			for (let i in this.petlistall) {
+				if (this.petlistall[i].type == this.type) {
+					arr.push(this.petlistall[i]);
+				}
+			}
+			this.petlist = arr;
 		}
 	},
-	onLoad() {
-	},
+	onLoad() {},
 	onShow() {
+		this.petlistrequest();
 	}
 };
 </script>
@@ -200,39 +200,12 @@ export default {
 			}
 		}
 	}
-	&_select {
+	&_tem {
+		width: 100%;
+	}
+	&_petlist {
 		width: 95%;
-		display: flex;
-		height: 90rpx;
-		padding-top: 30rpx;
-		align-items: center;
-		margin-bottom: 30rpx;
-		background: $uni-bg-color;
-		justify-content: space-around;
-		&_item {
-			width: 100rpx;
-			height: 50rpx;
-			text-align: center;
-			border-radius: 20rpx;
-			color: white;
-			font: 32rpx/50rpx bold;
-			background-color: $uni-border-color;
-			margin-bottom: 50rpx;
-			&_click {
-				color: $uni-color-error;
-				border: solid $uni-color-warning;
-				background-color: $uni-color-warning;
-			}
-			&_text {
-				margin-bottom: 15rpx;
-			}
-			&_under {
-				width: 100rpx;
-				height: 10rpx;
-				border-radius: 5rpx;
-				background-color: $uni-color-warning;
-			}
-		}
+		margin: 0 auto 0;
 	}
 }
 </style>

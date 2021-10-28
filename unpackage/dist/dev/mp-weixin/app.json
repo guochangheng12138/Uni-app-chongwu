@@ -8,7 +8,8 @@
     "pages/home/report",
     "pages/home/lookup",
     "pages/home/talk",
-    "pages/home/talkinfo"
+    "pages/home/talkinfo",
+    "pages/home/adopt"
   ],
   "subPackages": [],
   "window": {
@@ -49,5 +50,6 @@
       }
     ]
   },
-  "usingComponents": {}
+  "usingComponents": {},
+  "sitemapLocation": "sitemap.json"
 }

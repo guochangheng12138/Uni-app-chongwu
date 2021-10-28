@@ -51,7 +51,8 @@ export default {
 		},
 		handlestarschange(index) {
 			this.talklist[index].collection = !this.talklist[index].collection;
-			if ((this.talklist[index].collection = true)) {
+			if ((this.talklist[index].collection == true)) {
+				this.talklist[index].stars++;
 				uni.request({
 					url: 'https://www.example.com/request', //仅为示例，并非真实接口地址。
 					method: 'POST',
@@ -71,7 +72,7 @@ export default {
 					}
 				});
 			}else{
-				5555555
+				this.talklist[index].stars--;
 			}
 		},
 		handleurlgo(index) {

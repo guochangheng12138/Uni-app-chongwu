@@ -106,7 +106,7 @@ var components
 try {
   components = {
     uniNavBar: function() {
-      return __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ 64))
+      return __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ 88))
     }
   }
 } catch (e) {
@@ -161,18 +161,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var uniNavBar = function uniNavBar() {__webpack_require__.e(/*! require.ensure | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then((function () {return resolve(__webpack_require__(/*! @/components/uni-nav-bar/uni-nav-bar.vue */ 64));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var petInfo = function petInfo() {__webpack_require__.e(/*! require.ensure | components/petInfo */ "components/petInfo").then((function () {return resolve(__webpack_require__(/*! @/components/petInfo.vue */ 71));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
-
-
-
-
-
-
-
-
-
-
-
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var uniNavBar = function uniNavBar() {__webpack_require__.e(/*! require.ensure | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then((function () {return resolve(__webpack_require__(/*! @/components/uni-nav-bar/uni-nav-bar.vue */ 88));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var selectInfo = function selectInfo() {__webpack_require__.e(/*! require.ensure | components/selectInfo */ "components/selectInfo").then((function () {return resolve(__webpack_require__(/*! @/components/selectInfo.vue */ 120));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var petInfo = function petInfo() {__webpack_require__.e(/*! require.ensure | components/petInfo */ "components/petInfo").then((function () {return resolve(__webpack_require__(/*! @/components/petInfo.vue */ 95));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
@@ -213,54 +202,65 @@ __webpack_require__.r(__webpack_exports__);
   name: 'home',
   components: {
     uniNavBar: uniNavBar,
+    selectInfo: selectInfo,
     petInfo: petInfo },
 
   data: function data() {
     return {
-      title: 'Hello2',
+      // 分页列表
       list: [
       { imgurl: '../../static/home/list/unname.png', text: '黑名单', url: './blacklist' },
-      { imgurl: '../../static/home/list/heart.png', text: '领养' },
+      { imgurl: '../../static/home/list/heart.png', text: '领养', url: './adopt' },
       { imgurl: '../../static/home/list/pet.png', text: '寻宠物' },
       { imgurl: '../../static/home/list/talk.png', text: '话题', url: './talk' },
       { imgurl: '../../static/home/list/wash.png', text: '洗澡' }],
 
-      // 筛选列表
-      curentIndex: 0,
-      type: 'dog',
-      typelist: [
-      {
-        name: '狗狗',
-        type: 'dog',
-        click: true },
-
-      {
-        name: '猫咪',
-        type: 'cat',
-        click: false },
-
-      {
-        name: '其它',
-        type: 'elsepet',
-        click: false }] };
-
-
+      //宠物列表
+      petlistall: [],
+      petlist: [],
+      type: 'dog' };
 
   },
   methods: {
-    handletypeselect: function handletypeselect(index) {
-      this.typelist[index].click = true;
-      this.curentIndex = index;
-    },
+    // 分页跳转
     handlelistgo: function handlelistgo(index) {
       uni.navigateTo({
         url: index });
 
+    },
+    //请求全部宠物列表，及默认小狗列表
+    petlistrequest: function petlistrequest() {var _this = this;
+      uni.request({
+        url: 'https://www.fastmock.site/mock/e2ce4dd970cec7f48ded6abc9b324290/chongwu/adoptlist',
+        success: function success(res) {
+          //全部宠物列表
+          _this.petlistall = res.data.data;
+          //默认显示小狗列表
+          var arr = [];
+          for (var i in _this.petlistall) {
+            if (_this.petlistall[i].type == _this.type) {
+              arr.push(_this.petlistall[i]);
+            }
+          }
+          _this.petlist = arr;
+        } });
+
+    },
+    // 被子组件绑定的方法,切换宠物列表显示
+    handlelistchangeF: function handlelistchangeF(data) {
+      this.type = data;
+      var arr = [];
+      for (var i in this.petlistall) {
+        if (this.petlistall[i].type == this.type) {
+          arr.push(this.petlistall[i]);
+        }
+      }
+      this.petlist = arr;
     } },
 
-  onLoad: function onLoad() {
-  },
+  onLoad: function onLoad() {},
   onShow: function onShow() {
+    this.petlistrequest();
   } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
