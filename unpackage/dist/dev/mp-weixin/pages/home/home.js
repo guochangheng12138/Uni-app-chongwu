@@ -198,6 +198,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 {
   name: 'home',
   components: {
@@ -207,6 +208,8 @@ __webpack_require__.r(__webpack_exports__);
 
   data: function data() {
     return {
+      // 地址
+      city: '济南',
       // 分页列表
       list: [
       { imgurl: '../../static/home/list/unname.png', text: '黑名单', url: './blacklist' },
@@ -256,6 +259,19 @@ __webpack_require__.r(__webpack_exports__);
         }
       }
       this.petlist = arr;
+    },
+    // 修改定位
+    handleaddressselect: function handleaddressselect() {
+      // ！！！！！！！！！！！！！！保存this指向！！！！！！！！！！！！！！！！！！！！！
+      var that = this;
+      // ！！！！！！！！！！！！！！保存this指向！！！！！！！！！！！！！！！！！！！！！
+      uni.chooseLocation({
+        success: function success(res) {
+          that.city = res.name;
+          // console.log('位置名称：' + res.name);
+          // console.log('详细地址：' + res.address);
+        } });
+
     } },
 
   onLoad: function onLoad() {},

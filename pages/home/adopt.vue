@@ -8,7 +8,7 @@
 		<view class="content_input">
 			<input class="content_input_left" type="text" value="" />
 			<view class="content_input_center">|</view>
-			<view class="content_input_right">定位</view>
+			<view class="content_input_right" @click="handleaddressselect()">{{city}}</view>
 		</view>
 
 		<selectInfo @handlelistchange="handlelistchangeF" />
@@ -31,6 +31,7 @@ export default {
 	},
 	data() {
 		return {
+			city:"济南",
 			//宠物列表
 			petlistall: [],
 			petlist: [],
@@ -71,6 +72,15 @@ export default {
 				}
 			}
 			this.petlist = arr;
+		},
+		// 修改定位
+		handleaddressselect() {
+			let that = this;
+			uni.chooseLocation({
+				success: function(res) {
+					that.city = res.name;
+				}
+			});
 		}
 	},
 	onShow() {
@@ -103,7 +113,7 @@ export default {
 		margin-top: 10rpx;
 		display: flex;
 		&_left {
-			width: 80%;
+			width: 70%;
 			height: 80rpx;
 			padding-left: 20rpx;
 		}
@@ -114,6 +124,8 @@ export default {
 			flex: 1;
 			text-align: center;
 			line-height: 80rpx;
+			height: 80rpx;
+			overflow: hidden;
 		}
 	}
 }

@@ -186,6 +186,7 @@ __webpack_require__.r(__webpack_exports__);
 
   data: function data() {
     return {
+      city: "济南",
       //宠物列表
       petlistall: [],
       petlist: [],
@@ -226,6 +227,15 @@ __webpack_require__.r(__webpack_exports__);
         }
       }
       this.petlist = arr;
+    },
+    // 修改定位
+    handleaddressselect: function handleaddressselect() {
+      var that = this;
+      uni.chooseLocation({
+        success: function success(res) {
+          that.city = res.name;
+        } });
+
     } },
 
   onShow: function onShow() {

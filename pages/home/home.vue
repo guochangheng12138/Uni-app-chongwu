@@ -1,8 +1,9 @@
 <template>
 	<view class="content">
 		<uni-nav-bar class="content_nav" fixed="true" statusBar="true" shadow="true">
+			<view slot="left" class="iconfont content_nav_left" @click="handleaddressselect()">&#xe634;</view>
+			<view class="content_nav_center" @click="handleaddressselect()">{{ city }}</view>
 			<input type="text" value="" class="content_nav_input" />
-			<view slot="left" class="iconfont content_nav_left">&#xe634;</view>
 		</uni-nav-bar>
 
 		<image class="content_banner" src="/static/home/banner/banner.png"></image>
@@ -44,6 +45,8 @@ export default {
 	},
 	data() {
 		return {
+			// 地址
+			city: '济南',
 			// 分页列表
 			list: [
 				{ imgurl: '../../static/home/list/unname.png', text: '黑名单', url: './blacklist' },
@@ -93,6 +96,19 @@ export default {
 				}
 			}
 			this.petlist = arr;
+		},
+		// 修改定位
+		handleaddressselect() {
+			// ！！！！！！！！！！！！！！保存this指向！！！！！！！！！！！！！！！！！！！！！
+			let that = this;
+			// ！！！！！！！！！！！！！！保存this指向！！！！！！！！！！！！！！！！！！！！！
+			uni.chooseLocation({
+				success: function(res) {
+					that.city = res.name;
+					// console.log('位置名称：' + res.name);
+					// console.log('详细地址：' + res.address);
+				}
+			});
 		}
 	},
 	onLoad() {},
@@ -114,7 +130,7 @@ export default {
 		box-sizing: border-box;
 		border-bottom: none;
 		&_input {
-			width: 85%;
+			width: 80%;
 			height: 60rpx;
 			outline: none;
 			border: none;
@@ -122,8 +138,17 @@ export default {
 			box-shadow: 0 0 3rpx 1rpx $uni-border-color;
 		}
 		&_left {
-			width: 100%;
+			width: 30%;
 			text-align: center;
+		}
+		&_center {
+			width: 30%;
+			text-align: center;
+			margin-left: -110rpx;
+			text-align: left;
+			height: 60rpx;
+			line-height: 60rpx;
+			overflow: hidden;
 		}
 	}
 	&_banner {

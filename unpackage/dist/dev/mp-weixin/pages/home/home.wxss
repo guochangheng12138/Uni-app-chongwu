@@ -37,7 +37,7 @@
   border-bottom: none;
 }
 .content_nav_input.data-v-92bb8f34 {
-  width: 85%;
+  width: 80%;
   height: 60rpx;
   outline: none;
   border: none;
@@ -45,8 +45,17 @@
   box-shadow: 0 0 3rpx 1rpx #c8c7cc;
 }
 .content_nav_left.data-v-92bb8f34 {
-  width: 100%;
+  width: 30%;
   text-align: center;
+}
+.content_nav_center.data-v-92bb8f34 {
+  width: 30%;
+  text-align: center;
+  margin-left: -110rpx;
+  text-align: left;
+  height: 60rpx;
+  line-height: 60rpx;
+  overflow: hidden;
 }
 .content_banner.data-v-92bb8f34 {
   width: 95%;

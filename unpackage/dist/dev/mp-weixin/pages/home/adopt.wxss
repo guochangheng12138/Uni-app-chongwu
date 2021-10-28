@@ -47,7 +47,7 @@
   display: flex;
 }
 .content_input_left {
-  width: 80%;
+  width: 70%;
   height: 80rpx;
   padding-left: 20rpx;
 }
@@ -58,5 +58,7 @@
   flex: 1;
   text-align: center;
   line-height: 80rpx;
+  height: 80rpx;
+  overflow: hidden;
 }
 
