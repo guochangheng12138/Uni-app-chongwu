@@ -49,19 +49,16 @@
 			}
 		}, {
 			"path": "pages/home/talkinfo",
+			"style": {}
+		}, {
+			"path": "pages/home/adopt",
 			"style": {
+				"navigationStyle": "custom",
+				"enablePullDownRefresh": false
 			}
+
 		}
-	    ,{
-            "path" : "pages/home/adopt",
-            "style" :                                                                                    
-            {
-                "navigationStyle": "custom",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-    ],
+	],
 	"tabBar": {
 		"color": "#7A7E83",
 		"selectedColor": "#3cc51f",

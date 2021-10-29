@@ -1,5 +1,9 @@
 import App from './App'
 import store from './store'
+// 获取位置
+import {VueJsonp} from 'vue-jsonp';
+Vue.use(VueJsonp);
+// // 
 Vue.prototype.$store = store
 
 // #ifndef VUE3

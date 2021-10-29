@@ -2,7 +2,9 @@
 	<view class="content">
 		<uni-nav-bar class="content_nav" fixed="true" statusBar="true" shadow="true">
 			<view slot="left" class="iconfont content_nav_left" @click="handleaddressselect()">&#xe634;</view>
-			<view class="content_nav_center" @click="handleaddressselect()">{{ city }}</view>
+			<!-- 定位组件 -->
+			<location class="content_nav_center"></location>
+			<!-- 定位组件 -->
 			<input type="text" value="" class="content_nav_input" />
 		</uni-nav-bar>
 
@@ -33,6 +35,7 @@
 
 <script>
 import uniNavBar from '@/components/uni-nav-bar/uni-nav-bar.vue';
+import location from '@/components/location.vue';
 import selectInfo from '@/components/selectInfo.vue';
 import petInfo from '@/components/petInfo.vue';
 
@@ -40,13 +43,12 @@ export default {
 	name: 'home',
 	components: {
 		uniNavBar,
+		location,
 		selectInfo,
 		petInfo
 	},
 	data() {
 		return {
-			// 地址
-			city: '济南',
 			// 分页列表
 			list: [
 				{ imgurl: '../../static/home/list/unname.png', text: '黑名单', url: './blacklist' },
@@ -58,15 +60,26 @@ export default {
 			//宠物列表
 			petlistall: [],
 			petlist: [],
-			type: 'dog'
+			type: 'dog',
 		};
 	},
 	methods: {
-		// 分页跳转
+		// banner分页跳转
 		handlelistgo(index) {
 			uni.navigateTo({
 				url: index
 			});
+		},
+		// 被子组件绑定的方法,切换宠物列表显示
+		handlelistchangeF(data) {
+			this.type = data;
+			const arr = [];
+			for (let i in this.petlistall) {
+				if (this.petlistall[i].type == this.type) {
+					arr.push(this.petlistall[i]);
+				}
+			}
+			this.petlist = arr;
 		},
 		//请求全部宠物列表，及默认小狗列表
 		petlistrequest() {
@@ -86,32 +99,9 @@ export default {
 				}
 			});
 		},
-		// 被子组件绑定的方法,切换宠物列表显示
-		handlelistchangeF(data) {
-			this.type = data;
-			const arr = [];
-			for (let i in this.petlistall) {
-				if (this.petlistall[i].type == this.type) {
-					arr.push(this.petlistall[i]);
-				}
-			}
-			this.petlist = arr;
-		},
-		// 修改定位
-		handleaddressselect() {
-			// ！！！！！！！！！！！！！！保存this指向！！！！！！！！！！！！！！！！！！！！！
-			let that = this;
-			// ！！！！！！！！！！！！！！保存this指向！！！！！！！！！！！！！！！！！！！！！
-			uni.chooseLocation({
-				success: function(res) {
-					that.city = res.name;
-					// console.log('位置名称：' + res.name);
-					// console.log('详细地址：' + res.address);
-				}
-			});
-		}
 	},
-	onLoad() {},
+	onLoad() {
+	},
 	onShow() {
 		this.petlistrequest();
 	}
