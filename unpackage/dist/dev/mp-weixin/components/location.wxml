@@ -1,0 +1,1 @@
+<view><view data-event-opts="{{[['tap',[['handleaddressselect',['$event']]]]]}}" bindtap="__e">{{district}}</view></view>

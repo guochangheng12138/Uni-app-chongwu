@@ -3,7 +3,8 @@
   "enablePullDownRefresh": false,
   "usingComponents": {
     "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
-    "select-info": "/components/selectInfo",
-    "pet-info": "/components/petInfo"
+    "location": "/components/location",
+    "pet-info": "/components/petInfo",
+    "select-info": "/components/selectInfo"
   }
 }

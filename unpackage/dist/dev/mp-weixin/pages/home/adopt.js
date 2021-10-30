@@ -153,7 +153,10 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var uniNavBar = function uniNavBar() {__webpack_require__.e(/*! require.ensure | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then((function () {return resolve(__webpack_require__(/*! @/components/uni-nav-bar/uni-nav-bar.vue */ 89));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var petInfo = function petInfo() {__webpack_require__.e(/*! require.ensure | components/petInfo */ "components/petInfo").then((function () {return resolve(__webpack_require__(/*! @/components/petInfo.vue */ 103));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var selectInfo = function selectInfo() {__webpack_require__.e(/*! require.ensure | components/selectInfo */ "components/selectInfo").then((function () {return resolve(__webpack_require__(/*! @/components/selectInfo.vue */ 96));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var uniNavBar = function uniNavBar() {__webpack_require__.e(/*! require.ensure | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then((function () {return resolve(__webpack_require__(/*! @/components/uni-nav-bar/uni-nav-bar.vue */ 89));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var location = function location() {Promise.all(/*! require.ensure | components/location */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/location")]).then((function () {return resolve(__webpack_require__(/*! @/components/location.vue */ 96));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var selectInfo = function selectInfo() {__webpack_require__.e(/*! require.ensure | components/selectInfo */ "components/selectInfo").then((function () {return resolve(__webpack_require__(/*! @/components/selectInfo.vue */ 101));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var petInfo = function petInfo() {__webpack_require__.e(/*! require.ensure | components/petInfo */ "components/petInfo").then((function () {return resolve(__webpack_require__(/*! @/components/petInfo.vue */ 108));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
+
 
 
 
@@ -181,12 +184,12 @@ __webpack_require__.r(__webpack_exports__);
   name: 'adopt',
   components: {
     uniNavBar: uniNavBar,
-    selectInfo: selectInfo,
-    petInfo: petInfo },
+    location: location,
+    petInfo: petInfo,
+    selectInfo: selectInfo },
 
   data: function data() {
     return {
-      city: "济南",
       //宠物列表
       petlistall: [],
       petlist: [],

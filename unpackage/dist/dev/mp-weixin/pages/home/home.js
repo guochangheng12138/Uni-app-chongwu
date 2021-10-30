@@ -162,7 +162,10 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var uniNavBar = function uniNavBar() {__webpack_require__.e(/*! require.ensure | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then((function () {return resolve(__webpack_require__(/*! @/components/uni-nav-bar/uni-nav-bar.vue */ 89));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var selectInfo = function selectInfo() {__webpack_require__.e(/*! require.ensure | components/selectInfo */ "components/selectInfo").then((function () {return resolve(__webpack_require__(/*! @/components/selectInfo.vue */ 96));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var petInfo = function petInfo() {__webpack_require__.e(/*! require.ensure | components/petInfo */ "components/petInfo").then((function () {return resolve(__webpack_require__(/*! @/components/petInfo.vue */ 103));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var uniNavBar = function uniNavBar() {__webpack_require__.e(/*! require.ensure | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then((function () {return resolve(__webpack_require__(/*! @/components/uni-nav-bar/uni-nav-bar.vue */ 89));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var location = function location() {Promise.all(/*! require.ensure | components/location */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/location")]).then((function () {return resolve(__webpack_require__(/*! @/components/location.vue */ 96));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var selectInfo = function selectInfo() {__webpack_require__.e(/*! require.ensure | components/selectInfo */ "components/selectInfo").then((function () {return resolve(__webpack_require__(/*! @/components/selectInfo.vue */ 101));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var petInfo = function petInfo() {__webpack_require__.e(/*! require.ensure | components/petInfo */ "components/petInfo").then((function () {return resolve(__webpack_require__(/*! @/components/petInfo.vue */ 108));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
+
 
 
 
@@ -204,13 +207,12 @@ __webpack_require__.r(__webpack_exports__);
   name: 'home',
   components: {
     uniNavBar: uniNavBar,
+    location: location,
     selectInfo: selectInfo,
     petInfo: petInfo },
 
   data: function data() {
     return {
-      // 地址
-      city: '济南',
       // 分页列表
       list: [
       { imgurl: '../../static/home/list/unname.png', text: '黑名单', url: './blacklist' },
@@ -222,17 +224,26 @@ __webpack_require__.r(__webpack_exports__);
       //宠物列表
       petlistall: [],
       petlist: [],
-      type: 'dog',
-      longitude: "10",
-      latitude: "10" };
+      type: 'dog' };
 
   },
   methods: {
-    // 分页跳转
+    // banner分页跳转
     handlelistgo: function handlelistgo(index) {
       uni.navigateTo({
         url: index });
 
+    },
+    // 被子组件绑定的方法,切换宠物列表显示
+    handlelistchangeF: function handlelistchangeF(data) {
+      this.type = data;
+      var arr = [];
+      for (var i in this.petlistall) {
+        if (this.petlistall[i].type == this.type) {
+          arr.push(this.petlistall[i]);
+        }
+      }
+      this.petlist = arr;
     },
     //请求全部宠物列表，及默认小狗列表
     petlistrequest: function petlistrequest() {var _this = this;
@@ -251,67 +262,9 @@ __webpack_require__.r(__webpack_exports__);
           _this.petlist = arr;
         } });
 
-    },
-    // 被子组件绑定的方法,切换宠物列表显示
-    handlelistchangeF: function handlelistchangeF(data) {
-      this.type = data;
-      var arr = [];
-      for (var i in this.petlistall) {
-        if (this.petlistall[i].type == this.type) {
-          arr.push(this.petlistall[i]);
-        }
-      }
-      this.petlist = arr;
-    },
-    // 修改定位
-    handleaddressselect: function handleaddressselect() {
-      // ！！！！！！！！！！！！！！保存this指向！！！！！！！！！！！！！！！！！！！！！
-      var that = this;
-      // ！！！！！！！！！！！！！！保存this指向！！！！！！！！！！！！！！！！！！！！！
-      uni.chooseLocation({
-        success: function success(res) {
-          that.city = res.name;
-          // console.log('位置名称：' + res.name);
-          // console.log('详细地址：' + res.address);
-        } });
-
-    },
-    // 获取位置
-    getLocation: function getLocation() {
-      var that = this;
-      uni.getLocation({
-        type: 'wgs84',
-        success: function success(res) {
-          that.longitude = res.longitude;
-          that.latitude = res.latitude;
-        },
-        fail: function fail() {
-          console.log('获取位置失败');
-        },
-        complete: function complete() {
-          that.
-          $jsonp('https://apis.map.qq.com/ws/geocoder/v1/', {
-            key: 'YKWBZ-BO33P-L4IDH-V3DID-4R3N2-3NFFI',
-            // 不知道要不要注掉下一句,原作者未注释，但注释掉不影响使用
-            // callbackName: 'getJsonData',
-            output: 'jsonp',
-            location: that.latitude + ',' + that.longitude }).
-
-          then(function (json) {
-            // 请求成功的返回数据
-            // console.log(json.result.ad_info.city);
-            that.city = json.result.ad_info.district;
-          }).
-          catch(function (err) {
-            // 请求失败的返回数据
-            console.log(err);
-          });
-        } });
-
     } },
 
   onLoad: function onLoad() {
-    this.getLocation();
   },
   onShow: function onShow() {
     this.petlistrequest();

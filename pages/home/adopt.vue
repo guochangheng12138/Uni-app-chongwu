@@ -8,7 +8,9 @@
 		<view class="content_input">
 			<input class="content_input_left" type="text" value="" />
 			<view class="content_input_center">|</view>
-			<view class="content_input_right" @click="handleaddressselect()">{{city}}</view>
+			<view class="content_input_right" @click="handleaddressselect()">
+				<location/>
+			</view>
 		</view>
 
 		<selectInfo @handlelistchange="handlelistchangeF" />
@@ -19,19 +21,20 @@
 
 <script>
 import uniNavBar from '@/components/uni-nav-bar/uni-nav-bar.vue';
-import petInfo from '@/components/petInfo.vue';
+import location from '@/components/location.vue';
 import selectInfo from '@/components/selectInfo.vue';
+import petInfo from '@/components/petInfo.vue';
 
 export default {
 	name: 'adopt',
 	components: {
 		uniNavBar,
-		selectInfo,
-		petInfo
+		location,
+		petInfo,
+		selectInfo
 	},
 	data() {
 		return {
-			city:"济南",
 			//宠物列表
 			petlistall: [],
 			petlist: [],
