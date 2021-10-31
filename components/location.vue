@@ -7,7 +7,8 @@
 <script>
 //微信小程序端解析城市的区地址///////////////////////////////////
 //需要腾讯地图下载qqmap-wx-jssdk.min.js导入（https://lbs.qq.com/miniProgram/jsSdk/jsSdkGuide/jsSdkOverview）
-//申请的key编辑中勾选小程序，并填写APPID
+//申请的key编辑中勾选小程序，并填写APPID(在微信公众平台查看)
+//在微信公众平台，开发管理>开发设置>服务器域名>request合法域名>添加“https://apis.map.qq.com”
 //同时在mainfest.json文件中，微信小程序配置，勾选位置接口
 // #ifdef MP-WEIXIN
 import TencentMap from './qqmap-wx-jssdk.min.js';

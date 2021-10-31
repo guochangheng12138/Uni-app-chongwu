@@ -1,15 +1,15 @@
 (global["webpackJsonp"] = global["webpackJsonp"] || []).push([["pages/my/my"],{
 
 /***/ 35:
-/*!**************************************************************!*\
-  !*** F:/VUE-item/chongwu/main.js?{"page":"pages%2Fmy%2Fmy"} ***!
-  \**************************************************************/
+/*!*************************************************************!*\
+  !*** F:/QD-item/chongwu/main.js?{"page":"pages%2Fmy%2Fmy"} ***!
+  \*************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 5);
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 3));
 var _my = _interopRequireDefault(__webpack_require__(/*! ./pages/my/my.vue */ 36));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_my.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
@@ -17,9 +17,9 @@ createPage(_my.default);
 /***/ }),
 
 /***/ 36:
-/*!*******************************************!*\
-  !*** F:/VUE-item/chongwu/pages/my/my.vue ***!
-  \*******************************************/
+/*!******************************************!*\
+  !*** F:/QD-item/chongwu/pages/my/my.vue ***!
+  \******************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -56,9 +56,9 @@ component.options.__file = "pages/my/my.vue"
 /***/ }),
 
 /***/ 37:
-/*!**************************************************************************!*\
-  !*** F:/VUE-item/chongwu/pages/my/my.vue?vue&type=template&id=0be17cc6& ***!
-  \**************************************************************************/
+/*!*************************************************************************!*\
+  !*** F:/QD-item/chongwu/pages/my/my.vue?vue&type=template&id=0be17cc6& ***!
+  \*************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -78,9 +78,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 38:
-/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--16-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!F:/VUE-item/chongwu/pages/my/my.vue?vue&type=template&id=0be17cc6& ***!
-  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--16-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!F:/QD-item/chongwu/pages/my/my.vue?vue&type=template&id=0be17cc6& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -105,9 +105,9 @@ render._withStripped = true
 /***/ }),
 
 /***/ 39:
-/*!********************************************************************!*\
-  !*** F:/VUE-item/chongwu/pages/my/my.vue?vue&type=script&lang=js& ***!
-  \********************************************************************/
+/*!*******************************************************************!*\
+  !*** F:/QD-item/chongwu/pages/my/my.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -121,9 +121,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 40:
-/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!F:/VUE-item/chongwu/pages/my/my.vue?vue&type=script&lang=js& ***!
-  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!F:/QD-item/chongwu/pages/my/my.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 

@@ -1,9 +1,9 @@
 (global["webpackJsonp"] = global["webpackJsonp"] || []).push([["components/location"],{
 
 /***/ 100:
-/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!F:/VUE-item/chongwu/components/location.vue?vue&type=script&lang=js& ***!
-  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!F:/QD-item/chongwu/components/location.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -20,7 +20,8 @@
 
 
 
-var _qqmapWxJssdkMin = _interopRequireDefault(__webpack_require__(/*! ./qqmap-wx-jssdk.min.js */ 134));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
+
+var _qqmapWxJssdkMin = _interopRequireDefault(__webpack_require__(/*! ./qqmap-wx-jssdk.min.js */ 101));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
 //
 //
 //
@@ -28,11 +29,11 @@ var _qqmapWxJssdkMin = _interopRequireDefault(__webpack_require__(/*! ./qqmap-wx
 //
 //微信小程序端解析城市的区地址///////////////////////////////////
 //需要腾讯地图下载qqmap-wx-jssdk.min.js导入（https://lbs.qq.com/miniProgram/jsSdk/jsSdkGuide/jsSdkOverview）
-//申请的key编辑中勾选小程序，并填写APPID
+//申请的key编辑中勾选小程序，并填写APPID(在微信公众平台查看)
+//在微信公众平台，开发管理>开发设置>服务器域名>request合法域名>添加“https://apis.map.qq.com”
 //同时在mainfest.json文件中，微信小程序配置，勾选位置接口
 //////////////////////////////////////////////////////////////
-var _default = { name: 'location', data: function data() {return { district: '定位失败', longitude: '', latitude: '' };},
-  methods: {
+var _default = { name: 'location', data: function data() {return { district: '定位失败', longitude: '', latitude: '' };}, methods: {
     // 获取定位位置
     getLocation: function getLocation() {
       var that = this;
@@ -126,9 +127,9 @@ var _default = { name: 'location', data: function data() {return { district: '�
 /***/ }),
 
 /***/ 96:
-/*!***************************************************!*\
-  !*** F:/VUE-item/chongwu/components/location.vue ***!
-  \***************************************************/
+/*!**************************************************!*\
+  !*** F:/QD-item/chongwu/components/location.vue ***!
+  \**************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -165,9 +166,9 @@ component.options.__file = "components/location.vue"
 /***/ }),
 
 /***/ 97:
-/*!**********************************************************************************!*\
-  !*** F:/VUE-item/chongwu/components/location.vue?vue&type=template&id=c6d09d20& ***!
-  \**********************************************************************************/
+/*!*********************************************************************************!*\
+  !*** F:/QD-item/chongwu/components/location.vue?vue&type=template&id=c6d09d20& ***!
+  \*********************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -187,9 +188,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 98:
-/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--16-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!F:/VUE-item/chongwu/components/location.vue?vue&type=template&id=c6d09d20& ***!
-  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--16-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!F:/QD-item/chongwu/components/location.vue?vue&type=template&id=c6d09d20& ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -214,9 +215,9 @@ render._withStripped = true
 /***/ }),
 
 /***/ 99:
-/*!****************************************************************************!*\
-  !*** F:/VUE-item/chongwu/components/location.vue?vue&type=script&lang=js& ***!
-  \****************************************************************************/
+/*!***************************************************************************!*\
+  !*** F:/QD-item/chongwu/components/location.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
