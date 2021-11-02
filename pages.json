@@ -56,7 +56,12 @@
 				"navigationStyle": "custom",
 				"enablePullDownRefresh": false
 			}
-
+		}, {
+			"path": "pages/home/selectdetailed",
+			"style": {
+				"navigationStyle": "custom",
+				"enablePullDownRefresh": false
+			}
 		}
 	],
 	"tabBar": {

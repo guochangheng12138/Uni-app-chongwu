@@ -28,7 +28,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .content {
 	width: 95%;
 	margin: 0 auto 0;

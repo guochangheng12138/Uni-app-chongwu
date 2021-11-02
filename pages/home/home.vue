@@ -11,7 +11,7 @@
 		<image class="content_banner" src="/static/home/banner/banner.png"></image>
 
 		<view class="content_list">
-			<view class="content_list_item" v-for="(item, index) in list" :key="index" @click="handlelistgo(item.url)">
+			<view class="content_list_item" v-for="(item, index) in list" :key="index" @click="handlelistgo(item.url, index)">
 				<image :src="item.imgurl" class="content_list_item_img"></image>
 				<text class="content_list_item_text">{{ item.text }}</text>
 			</view>
@@ -27,9 +27,13 @@
 				<view class="content_store_text_c">查看详情</view>
 			</view>
 		</view>
-		<view class="content_tem"><selectInfo class="" @handlelistchange="handlelistchangeF" /></view>
+		<!-- 筛选条组件 -->
+		<view class="content_tem"><selectInfo v-if="sonRefresh" :key="timer" @handlelistchange="handlelistchangeF" /></view>
+		<!-- 筛选条组件 -->
 
+		<!-- 宠物列表组件 -->
 		<view class="content_petlist" v-for="(item, index) in petlist" :key="index"><petInfo :item="item" /></view>
+		<!-- 宠物列表组件 -->
 	</view>
 </template>
 
@@ -61,13 +65,20 @@ export default {
 			petlistall: [],
 			petlist: [],
 			type: 'dog',
+			// 两种方法（参数）判断是否重新渲染子组件
+			timer: '',
+			sonRefresh: true
 		};
 	},
 	methods: {
 		// banner分页跳转
-		handlelistgo(index) {
+		handlelistgo(url, index) {
+			if ((index = 1)) {
+				// adopt页跳转筛选详情页校验参数
+				this.$store.commit('defset3');
+			}
 			uni.navigateTo({
-				url: index
+				url: url
 			});
 		},
 		// 被子组件绑定的方法,切换宠物列表显示
@@ -99,11 +110,34 @@ export default {
 				}
 			});
 		},
+		// 检查跳转来源
+		checksource() {
+			if (this.$store.state.selectnav !== 0) {
+				this.petlist = [];
+			}
+		},
+		// 进入页面重新渲染子组件
+		handleLoad() {
+			// 方法一。。。。。。。。跳转tbar页面在小程序端!!无效!!
+			this.timer = new Date().getTime();
+			// 方法二。。。。。。。。。。。跳转tbar页面在小程序端!!有效!!
+			this.sonRefresh = false;
+			this.$nextTick(() => {
+				this.sonRefresh = true;
+			});
+		}
 	},
 	onLoad() {
+		// 只在首次载入请求总列表及默认列表,更改显示内容在onshow中操作
+		this.petlistrequest();
 	},
 	onShow() {
-		this.petlistrequest();
+		// 执行从home页跳转筛选详情页校验参数
+		this.$store.commit('defset2');
+		// 重新渲染子组件
+		this.handleLoad();
+		// 检查跳转来源
+		this.checksource();
 	}
 };
 </script>

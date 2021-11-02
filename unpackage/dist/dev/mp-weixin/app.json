@@ -9,7 +9,8 @@
     "pages/home/lookup",
     "pages/home/talk",
     "pages/home/talkinfo",
-    "pages/home/adopt"
+    "pages/home/adopt",
+    "pages/home/selectdetailed"
   ],
   "subPackages": [],
   "window": {

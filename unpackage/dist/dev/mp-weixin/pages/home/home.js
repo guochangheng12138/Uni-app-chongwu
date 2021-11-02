@@ -107,7 +107,7 @@ var components
 try {
   components = {
     uniNavBar: function() {
-      return __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ 89))
+      return __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ 97))
     }
   }
 } catch (e) {
@@ -162,7 +162,11 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var uniNavBar = function uniNavBar() {__webpack_require__.e(/*! require.ensure | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then((function () {return resolve(__webpack_require__(/*! @/components/uni-nav-bar/uni-nav-bar.vue */ 89));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var location = function location() {Promise.all(/*! require.ensure | components/location */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/location")]).then((function () {return resolve(__webpack_require__(/*! @/components/location.vue */ 96));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var selectInfo = function selectInfo() {__webpack_require__.e(/*! require.ensure | components/selectInfo */ "components/selectInfo").then((function () {return resolve(__webpack_require__(/*! @/components/selectInfo.vue */ 102));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var petInfo = function petInfo() {__webpack_require__.e(/*! require.ensure | components/petInfo */ "components/petInfo").then((function () {return resolve(__webpack_require__(/*! @/components/petInfo.vue */ 109));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var uniNavBar = function uniNavBar() {__webpack_require__.e(/*! require.ensure | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then((function () {return resolve(__webpack_require__(/*! @/components/uni-nav-bar/uni-nav-bar.vue */ 97));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var location = function location() {Promise.all(/*! require.ensure | components/location */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/location")]).then((function () {return resolve(__webpack_require__(/*! @/components/location.vue */ 104));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var selectInfo = function selectInfo() {__webpack_require__.e(/*! require.ensure | components/selectInfo */ "components/selectInfo").then((function () {return resolve(__webpack_require__(/*! @/components/selectInfo.vue */ 110));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var petInfo = function petInfo() {__webpack_require__.e(/*! require.ensure | components/petInfo */ "components/petInfo").then((function () {return resolve(__webpack_require__(/*! @/components/petInfo.vue */ 117));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
+
+
 
 
 
@@ -224,14 +228,21 @@ __webpack_require__.r(__webpack_exports__);
       //宠物列表
       petlistall: [],
       petlist: [],
-      type: 'dog' };
+      type: 'dog',
+      // 两种方法（参数）判断是否重新渲染子组件
+      timer: '',
+      sonRefresh: true };
 
   },
   methods: {
     // banner分页跳转
-    handlelistgo: function handlelistgo(index) {
+    handlelistgo: function handlelistgo(url, index) {
+      if (index = 1) {
+        // adopt页跳转筛选详情页校验参数
+        this.$store.commit('defset3');
+      }
       uni.navigateTo({
-        url: index });
+        url: url });
 
     },
     // 被子组件绑定的方法,切换宠物列表显示
@@ -262,12 +273,35 @@ __webpack_require__.r(__webpack_exports__);
           _this.petlist = arr;
         } });
 
+    },
+    // 检查跳转来源
+    checksource: function checksource() {
+      if (this.$store.state.selectnav !== 0) {
+        this.petlist = [];
+      }
+    },
+    // 进入页面重新渲染子组件
+    handleLoad: function handleLoad() {var _this2 = this;
+      // 方法一。。。。。。。。跳转tbar页面在小程序端!!无效!!
+      this.timer = new Date().getTime();
+      // 方法二。。。。。。。。。。。跳转tbar页面在小程序端!!有效!!
+      this.sonRefresh = false;
+      this.$nextTick(function () {
+        _this2.sonRefresh = true;
+      });
     } },
 
   onLoad: function onLoad() {
+    // 只在首次载入请求总列表及默认列表,更改显示内容在onshow中操作
+    this.petlistrequest();
   },
   onShow: function onShow() {
-    this.petlistrequest();
+    // 执行从home页跳转筛选详情页校验参数
+    this.$store.commit('defset2');
+    // 重新渲染子组件
+    this.handleLoad();
+    // 检查跳转来源
+    this.checksource();
   } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

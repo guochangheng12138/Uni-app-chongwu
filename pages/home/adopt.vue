@@ -8,12 +8,10 @@
 		<view class="content_input">
 			<input class="content_input_left" type="text" value="" />
 			<view class="content_input_center">|</view>
-			<view class="content_input_right" @click="handleaddressselect()">
-				<location/>
-			</view>
+			<view class="content_input_right" @click="handleaddressselect()"><location /></view>
 		</view>
 
-		<selectInfo @handlelistchange="handlelistchangeF" />
+		<selectInfo :key="timer" @handlelistchange="handlelistchangeF" />
 
 		<view class="content_petlist" v-for="(item, index) in petlist" :key="index"><petInfo :item="item" /></view>
 	</view>
@@ -38,7 +36,9 @@ export default {
 			//宠物列表
 			petlistall: [],
 			petlist: [],
-			type: 'dog'
+			type: 'dog',
+			// 判断是否重新渲染子组件
+			timer: ''
 		};
 	},
 	methods: {
@@ -84,10 +84,20 @@ export default {
 					that.city = res.name;
 				}
 			});
+		},
+		// 重新渲染子组件
+		handleLoad() {
+			// 方法一
+			this.timer = new Date().getTime();
 		}
 	},
-	onShow() {
+	onLoad() {
+		// 只在首次载入请求总列表及默认列表,更改显示内容在onshow中操作
 		this.petlistrequest();
+	},
+	onShow() {
+		// 重新渲染子组件
+		this.handleLoad();
 	}
 };
 </script>

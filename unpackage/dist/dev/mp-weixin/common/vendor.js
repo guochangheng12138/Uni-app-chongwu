@@ -2055,7 +2055,7 @@ uni$1;exports.default = _default;
 
 /***/ }),
 
-/***/ 101:
+/***/ 109:
 /*!***********************************************************!*\
   !*** F:/QD-item/chongwu/components/qqmap-wx-jssdk.min.js ***!
   \***********************************************************/
@@ -2221,12 +2221,36 @@ var getLocalCarList = function getLocalCarList() {
 
 new _vuex.default.Store({
   state: {
-    num: 5 },
+    pettype: "dog",
+    // 判断筛选条处于哪个页面（还未进入详情）
+    defsetselect: 0,
+    // 判断筛选条筛选按钮是否改变样式(已进入过详情，并点击确定返回)
+    selectnav: 0 },
 
   mutations: {
-    jiayi: function jiayi(state) {
-      state.num++;
-      setLocalCarList(state);
+    // 主页设置筛选请求宠物类型
+    pettypeset: function pettypeset(state, payload) {var
+      type = payload.type;
+      state.pettype = type;
+      // setLocalCarList(state);
+    },
+    // 判断筛选条处于哪个页面（还未进入详情）
+    //home页
+    defset2: function defset2(state) {
+      state.defsetselect = "d2";
+    },
+    //adopt页
+    defset3: function defset3(state) {
+      state.defsetselect = "d3";
+    },
+    // 判断筛选条筛选按钮是否改变样式(已进入过详情，并点击确定返回)
+    // home页
+    navset2: function navset2(state) {
+      state.selectnav = "n2";
+    },
+    // adopt页
+    navset3: function navset3(state) {
+      state.selectnav = "n3";
     } } });
 
 

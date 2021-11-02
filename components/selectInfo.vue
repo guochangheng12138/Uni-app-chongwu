@@ -4,12 +4,20 @@
 			v-for="(item, index) in typelist"
 			:key="index"
 			:class="['content_select_item', curentIndex === index ? 'content_select_item_click' : '']"
-			@click="handletypeselect(index,item.type)"
+			@click="handletypeselect(index, item.type)"
 		>
 			<view class="content_select_item_text">{{ item.name }}</view>
 			<view class="content_select_item_under" v-show="curentIndex === index"></view>
 		</view>
-		<view class="content_select_item">筛选></view>
+		<view class="">
+			<view
+				:class="['content_select_item', selectinfos === true ? 'content_select_item_click' : '', selectinfos === true ? 'content_select_items' : '']"
+				@click="handlelistgo()"
+			>
+				筛选>
+			</view>
+			<view class="content_select_item_unders" v-if="selectinfos === true"></view>
+		</view>
 	</view>
 </template>
 
@@ -37,15 +45,35 @@ export default {
 					type: 'elsepet',
 					click: false
 				}
-			]
+			],
+			// 详细筛选样式
+			selectinfos: false
 		};
 	},
 	methods: {
-		handletypeselect(index,type) {
+		// 筛选切换
+		handletypeselect(index, type) {
 			this.typelist[index].click = true;
 			this.curentIndex = index;
-			this.type=type;
-			this.$emit('handlelistchange',this.type)
+			this.type = type;
+			// 绑定父组件
+			this.$emit('handlelistchange', this.type);
+		},
+		// 筛选详情页跳转
+		handlelistgo() {
+			const type = this.type;
+			this.$store.commit('pettypeset', { type });
+			uni.navigateTo({
+				url: './selectdetailed'
+			});
+		}
+	},
+	created() {
+		//利用时间戳（方法1）或$nextTick（方法2），每次显示组件都将其重新渲染，并根据从哪里进来，以及是否进入过详情页点击确定，联合判断筛选按钮是否更改样式
+		if (this.$store.state.selectnav == 'n2' && this.$store.state.defsetselect == 'd2') {
+			this.selectinfos = true;
+		} else if (this.$store.state.selectnav == 'n3' && this.$store.state.defsetselect == 'd3') {
+			this.selectinfos = true;
 		}
 	}
 };
@@ -85,6 +113,17 @@ export default {
 			border-radius: 5rpx;
 			background-color: $uni-color-warning;
 		}
+		&_unders {
+			width: 100rpx;
+			height: 10rpx;
+			border-radius: 5rpx;
+			background-color: $uni-color-warning;
+			margin-top: -40rpx;
+			margin-left: 0rpx;
+		}
+	}
+	&_items {
+		margin-top: -30rpx;
 	}
 }
 </style>
