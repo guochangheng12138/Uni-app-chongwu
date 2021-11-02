@@ -43,7 +43,7 @@ export default {
 		},
 		talklistrequest() {
 			uni.request({
-				url: 'https://www.fastmock.site/mock/e2ce4dd970cec7f48ded6abc9b324290/chongwu/talk',
+				url: 'https://www.fastmock.site/mock/e2ce4dd970cec7f48ded6abc9b324290/chongwu/home/talk',
 				success: res => {
 					this.talklist = res.data.data;
 				}
@@ -101,6 +101,7 @@ export default {
 		&_text {
 			margin-left: -60rpx;
 			font-size: 40rpx;
+			font-weight: bolder;
 		}
 	}
 	&_list {
@@ -120,6 +121,7 @@ export default {
 			text-overflow: ellipsis;
 			white-space: nowrap;
 			margin-bottom: 15rpx;
+			font-weight: bolder;
 		}
 		&_info {
 			font-size: 30rpx;

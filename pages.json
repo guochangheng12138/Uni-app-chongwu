@@ -62,6 +62,18 @@
 				"navigationStyle": "custom",
 				"enablePullDownRefresh": false
 			}
+		}, {
+			"path": "pages/home/lookingpets",
+			"style": {
+				"navigationStyle": "custom",
+				"enablePullDownRefresh": false
+			}
+		},{
+			"path": "pages/home/washing",
+			"style": {
+				"navigationStyle": "custom",
+				"enablePullDownRefresh": false
+			}
 		}
 	],
 	"tabBar": {

@@ -56,6 +56,7 @@
 .content_petinfo_item_info_top_left_a.data-v-53fc1482 {
   margin-bottom: 30rpx;
   font-size: 40rpx;
+  font-weight: bold;
 }
 .content_petinfo_item_info_top_right.data-v-53fc1482 {
   font-size: 50rpx;

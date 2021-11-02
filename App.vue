@@ -16,9 +16,9 @@ export default {
 /*每个页面公共css */
 @font-face {
   font-family: 'iconfont';  /* Project id 2811089 */
-  src: url('https://at.alicdn.com/t/font_2811089_b4c28dmuvne.woff2?t=1635327846101') format('woff2'),
-       url('https://at.alicdn.com/t/font_2811089_b4c28dmuvne.woff?t=1635327846101') format('woff'),
-       url('https://at.alicdn.com/t/font_2811089_b4c28dmuvne.ttf?t=1635327846101') format('truetype');
+  src: url('https://at.alicdn.com/t/font_2811089_z6xb3zq6jl.woff2?t=1635840552819') format('woff2'),
+       url('https://at.alicdn.com/t/font_2811089_z6xb3zq6jl.woff?t=1635840552819') format('woff'),
+       url('https://at.alicdn.com/t/font_2811089_z6xb3zq6jl.ttf?t=1635840552819') format('truetype');
 }
 .iconfont {
 	font-family: 'iconfont' !important;

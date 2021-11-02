@@ -37,7 +37,7 @@
   border-bottom: none;
 }
 .content_nav_input.data-v-92bb8f34 {
-  width: 80%;
+  width: 70%;
   height: 60rpx;
   outline: none;
   border: none;
@@ -59,8 +59,20 @@
 }
 .content_banner.data-v-92bb8f34 {
   width: 95%;
-  height: 300rpx;
+  height: 250rpx;
   margin: 20rpx auto 30rpx;
+}
+.content_banner_item.data-v-92bb8f34 {
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+  border-radius: 20rpx;
+  border: solid white 10rpx;
+}
+.content_banner_item_img.data-v-92bb8f34 {
+  width: 100%;
+  height: 100%;
+  border-radius: 20rpx;
 }
 .content_list.data-v-92bb8f34 {
   background: white;

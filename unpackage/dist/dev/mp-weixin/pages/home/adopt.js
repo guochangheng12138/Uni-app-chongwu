@@ -205,7 +205,7 @@ __webpack_require__.r(__webpack_exports__);
     //请求全部宠物列表，及默认小狗列表
     petlistrequest: function petlistrequest() {var _this = this;
       uni.request({
-        url: 'https://www.fastmock.site/mock/e2ce4dd970cec7f48ded6abc9b324290/chongwu/adoptlist',
+        url: 'https://www.fastmock.site/mock/e2ce4dd970cec7f48ded6abc9b324290/chongwu/home/adoptlist',
         success: function success(res) {
           //全部宠物列表
           _this.petlistall = res.data.data;

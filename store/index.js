@@ -38,6 +38,10 @@ export default new Vuex.Store({
 		defset3(state){
 			state.defsetselect="d3";
 		},
+		// lookingpets页
+		defset4(state){
+			state.defsetselect="d4";
+		},
 		// 判断筛选条筛选按钮是否改变样式(已进入过详情，并点击确定返回)
 		// home页
 		navset2(state){
@@ -46,6 +50,10 @@ export default new Vuex.Store({
 		// adopt页
 		navset3(state){
 			state.selectnav="n3";
+		},	
+		// lookingpets页
+		navset4(state){
+			state.selectnav="n4";
 		},
 	}
 })

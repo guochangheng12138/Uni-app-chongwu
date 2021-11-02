@@ -211,9 +211,10 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     goback: function goback() {
-      uni.navigateTo({
-        url: "./blacklist" });
-
+      // uni.navigateTo({
+      // 	url: "./blacklist"
+      // });
+      uni.navigateBack();
     },
 
     handlepeopleselect1: function handlepeopleselect1() {

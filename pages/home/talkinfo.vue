@@ -47,6 +47,7 @@ export default {
 		&_text {
 			margin-left: -60rpx;
 			font-size: 40rpx;
+			font-weight: bolder;
 		}
 	}
 }

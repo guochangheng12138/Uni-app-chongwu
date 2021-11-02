@@ -2243,6 +2243,10 @@ new _vuex.default.Store({
     defset3: function defset3(state) {
       state.defsetselect = "d3";
     },
+    // lookingpets页
+    defset4: function defset4(state) {
+      state.defsetselect = "d4";
+    },
     // 判断筛选条筛选按钮是否改变样式(已进入过详情，并点击确定返回)
     // home页
     navset2: function navset2(state) {
@@ -2251,6 +2255,10 @@ new _vuex.default.Store({
     // adopt页
     navset3: function navset3(state) {
       state.selectnav = "n3";
+    },
+    // lookingpets页
+    navset4: function navset4(state) {
+      state.selectnav = "n4";
     } } });
 
 

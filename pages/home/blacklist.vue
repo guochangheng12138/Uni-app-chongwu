@@ -71,7 +71,7 @@ export default {
 		handletypeselect1() {
 			this.curentIndex = true;
 			uni.request({
-				url: 'https://www.fastmock.site/mock/e2ce4dd970cec7f48ded6abc9b324290/chongwu/blacklist/adopter',
+				url: 'https://www.fastmock.site/mock/e2ce4dd970cec7f48ded6abc9b324290/chongwu/home/blacklist/adopter',
 				success: res => {
 					this.blacklist = res.data.data;
 				}
@@ -80,7 +80,7 @@ export default {
 		handletypeselect2() {
 			this.curentIndex = false;
 			uni.request({
-				url: 'https://www.fastmock.site/mock/e2ce4dd970cec7f48ded6abc9b324290/chongwu/blacklist/placeout',
+				url: 'https://www.fastmock.site/mock/e2ce4dd970cec7f48ded6abc9b324290/chongwu/home/blacklist/placeout',
 				success: res => {
 					this.blacklist = res.data.data;
 				}
@@ -124,6 +124,7 @@ export default {
 		&_text {
 			margin-left: -60rpx;
 			font-size: 40rpx;
+			font-weight: bolder;
 		}
 	}
 	&_top {

@@ -37,6 +37,7 @@
 .content_nav_text.data-v-2412707e {
   margin-left: -60rpx;
   font-size: 40rpx;
+  font-weight: bolder;
 }
 .top.data-v-2412707e {
   padding-top: 120rpx;

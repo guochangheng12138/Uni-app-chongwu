@@ -99,6 +99,12 @@ export default {
 				uni.navigateTo({
 					url: './adopt'
 				});
+			}else if (this.$store.state.defsetselect == "d4") {
+				this.$store.commit('navset4');
+				console.log(2)
+				uni.navigateTo({
+					url: './lookingpets'
+				});
 			}
 		}
 	}
@@ -119,6 +125,7 @@ export default {
 		&_text {
 			margin-left: -60rpx;
 			font-size: 40rpx;
+			font-weight: bold;
 		}
 	}
 	&_div {

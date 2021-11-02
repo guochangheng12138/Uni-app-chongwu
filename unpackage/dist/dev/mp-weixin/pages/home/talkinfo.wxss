@@ -37,5 +37,6 @@
 .content_nav_text.data-v-c375bc3e {
   margin-left: -60rpx;
   font-size: 40rpx;
+  font-weight: bolder;
 }
 

@@ -37,6 +37,7 @@
 .content_nav_text.data-v-0db1381a {
   margin-left: -60rpx;
   font-size: 40rpx;
+  font-weight: bold;
 }
 .content_div.data-v-0db1381a {
   height: 50rpx;

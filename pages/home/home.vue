@@ -8,7 +8,12 @@
 			<input type="text" value="" class="content_nav_input" />
 		</uni-nav-bar>
 
-		<image class="content_banner" src="/static/home/banner/banner.png"></image>
+		<swiper class="content_banner" :circular="true" :indicator-dots="true" :autoplay="true" :interval="2000" :duration="1000">
+			<swiper-item class="content_banner_item"><image class="content_banner_item_img" src="/static/home/banner/banner1.png"></image></swiper-item>
+			<swiper-item class="content_banner_item"><image class="content_banner_item_img" src="/static/home/banner/banner2.png"></image></swiper-item>
+			<swiper-item class="content_banner_item"><image class="content_banner_item_img" src="/static/home/banner/banner3.png"></image></swiper-item>
+			<swiper-item class="content_banner_item"><image class="content_banner_item_img" src="/static/home/banner/banner4.png"></image></swiper-item>
+		</swiper>
 
 		<view class="content_list">
 			<view class="content_list_item" v-for="(item, index) in list" :key="index" @click="handlelistgo(item.url, index)">
@@ -57,9 +62,9 @@ export default {
 			list: [
 				{ imgurl: '../../static/home/list/unname.png', text: '黑名单', url: './blacklist' },
 				{ imgurl: '../../static/home/list/heart.png', text: '领养', url: './adopt' },
-				{ imgurl: '../../static/home/list/pet.png', text: '寻宠物' },
+				{ imgurl: '../../static/home/list/pet.png', text: '寻宠物', url: './lookingpets' },
 				{ imgurl: '../../static/home/list/talk.png', text: '话题', url: './talk' },
-				{ imgurl: '../../static/home/list/wash.png', text: '洗澡' }
+				{ imgurl: '../../static/home/list/wash.png', text: '洗澡', url: './washing' }
 			],
 			//宠物列表
 			petlistall: [],
@@ -73,9 +78,12 @@ export default {
 	methods: {
 		// banner分页跳转
 		handlelistgo(url, index) {
-			if ((index = 1)) {
+			if (index == 1) {
 				// adopt页跳转筛选详情页校验参数
 				this.$store.commit('defset3');
+			} else if (index == 2) {
+				// lookingpets页跳转筛选详情页校验参数
+				this.$store.commit('defset4');
 			}
 			uni.navigateTo({
 				url: url
@@ -95,7 +103,7 @@ export default {
 		//请求全部宠物列表，及默认小狗列表
 		petlistrequest() {
 			uni.request({
-				url: 'https://www.fastmock.site/mock/e2ce4dd970cec7f48ded6abc9b324290/chongwu/adoptlist',
+				url: 'https://www.fastmock.site/mock/e2ce4dd970cec7f48ded6abc9b324290/chongwu/home/adoptlist',
 				success: res => {
 					//全部宠物列表
 					this.petlistall = res.data.data;
@@ -154,7 +162,7 @@ export default {
 		box-sizing: border-box;
 		border-bottom: none;
 		&_input {
-			width: 80%;
+			width: 70%;
 			height: 60rpx;
 			outline: none;
 			border: none;
@@ -177,8 +185,20 @@ export default {
 	}
 	&_banner {
 		width: 95%;
-		height: 300rpx;
+		height: 250rpx;
 		margin: 20rpx auto 30rpx;
+		&_item {
+			width: 100%;
+			text-align: center;
+			box-sizing: border-box;
+			border-radius: 20rpx;
+			border: solid white 10rpx;
+			&_img{
+				width: 100%;
+				height: 100%;
+				border-radius: 20rpx;
+			}
+		}
 	}
 	&_list {
 		background: white;

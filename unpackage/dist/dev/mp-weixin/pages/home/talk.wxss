@@ -37,6 +37,7 @@
 .content_nav_text.data-v-a18e6c9a {
   margin-left: -60rpx;
   font-size: 40rpx;
+  font-weight: bolder;
 }
 .content_list.data-v-a18e6c9a {
   background: #f5f5f5;
@@ -56,6 +57,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   margin-bottom: 15rpx;
+  font-weight: bolder;
 }
 .content_list_info.data-v-a18e6c9a {
   font-size: 30rpx;

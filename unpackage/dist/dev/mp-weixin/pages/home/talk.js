@@ -198,7 +198,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     talklistrequest: function talklistrequest() {var _this = this;
       uni.request({
-        url: 'https://www.fastmock.site/mock/e2ce4dd970cec7f48ded6abc9b324290/chongwu/talk',
+        url: 'https://www.fastmock.site/mock/e2ce4dd970cec7f48ded6abc9b324290/chongwu/home/talk',
         success: function success(res) {
           _this.talklist = res.data.data;
         } });

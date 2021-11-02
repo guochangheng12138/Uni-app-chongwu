@@ -226,7 +226,7 @@ __webpack_require__.r(__webpack_exports__);
     handletypeselect1: function handletypeselect1() {var _this = this;
       this.curentIndex = true;
       uni.request({
-        url: 'https://www.fastmock.site/mock/e2ce4dd970cec7f48ded6abc9b324290/chongwu/blacklist/adopter',
+        url: 'https://www.fastmock.site/mock/e2ce4dd970cec7f48ded6abc9b324290/chongwu/home/blacklist/adopter',
         success: function success(res) {
           _this.blacklist = res.data.data;
         } });
@@ -235,7 +235,7 @@ __webpack_require__.r(__webpack_exports__);
     handletypeselect2: function handletypeselect2() {var _this2 = this;
       this.curentIndex = false;
       uni.request({
-        url: 'https://www.fastmock.site/mock/e2ce4dd970cec7f48ded6abc9b324290/chongwu/blacklist/placeout',
+        url: 'https://www.fastmock.site/mock/e2ce4dd970cec7f48ded6abc9b324290/chongwu/home/blacklist/placeout',
         success: function success(res) {
           _this2.blacklist = res.data.data;
         } });

@@ -207,6 +207,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
 {
   name: 'home',
   components: {
@@ -221,9 +226,9 @@ __webpack_require__.r(__webpack_exports__);
       list: [
       { imgurl: '../../static/home/list/unname.png', text: '黑名单', url: './blacklist' },
       { imgurl: '../../static/home/list/heart.png', text: '领养', url: './adopt' },
-      { imgurl: '../../static/home/list/pet.png', text: '寻宠物' },
+      { imgurl: '../../static/home/list/pet.png', text: '寻宠物', url: './lookingpets' },
       { imgurl: '../../static/home/list/talk.png', text: '话题', url: './talk' },
-      { imgurl: '../../static/home/list/wash.png', text: '洗澡' }],
+      { imgurl: '../../static/home/list/wash.png', text: '洗澡', url: './washing' }],
 
       //宠物列表
       petlistall: [],
@@ -237,9 +242,12 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     // banner分页跳转
     handlelistgo: function handlelistgo(url, index) {
-      if (index = 1) {
+      if (index == 1) {
         // adopt页跳转筛选详情页校验参数
         this.$store.commit('defset3');
+      } else if (index == 2) {
+        // lookingpets页跳转筛选详情页校验参数
+        this.$store.commit('defset4');
       }
       uni.navigateTo({
         url: url });
@@ -259,7 +267,7 @@ __webpack_require__.r(__webpack_exports__);
     //请求全部宠物列表，及默认小狗列表
     petlistrequest: function petlistrequest() {var _this = this;
       uni.request({
-        url: 'https://www.fastmock.site/mock/e2ce4dd970cec7f48ded6abc9b324290/chongwu/adoptlist',
+        url: 'https://www.fastmock.site/mock/e2ce4dd970cec7f48ded6abc9b324290/chongwu/home/adoptlist',
         success: function success(res) {
           //全部宠物列表
           _this.petlistall = res.data.data;

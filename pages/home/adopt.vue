@@ -50,7 +50,7 @@ export default {
 		//请求全部宠物列表，及默认小狗列表
 		petlistrequest() {
 			uni.request({
-				url: 'https://www.fastmock.site/mock/e2ce4dd970cec7f48ded6abc9b324290/chongwu/adoptlist',
+				url: 'https://www.fastmock.site/mock/e2ce4dd970cec7f48ded6abc9b324290/chongwu/home/adoptlist',
 				success: res => {
 					//全部宠物列表
 					this.petlistall = res.data.data;
@@ -116,6 +116,7 @@ export default {
 		&_text {
 			margin-left: -60rpx;
 			font-size: 40rpx;
+			font-weight: bolder;
 		}
 	}
 	&_input {

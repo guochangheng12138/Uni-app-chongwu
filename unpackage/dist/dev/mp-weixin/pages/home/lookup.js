@@ -192,9 +192,10 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     goback: function goback() {
-      uni.navigateTo({
-        url: "./blacklist" });
-
+      // uni.navigateTo({
+      // 	url: "./blacklist"
+      // });
+      uni.navigateBack();
     },
     bindPickerChange: function bindPickerChange(e) {
       this.index = e.target.value;

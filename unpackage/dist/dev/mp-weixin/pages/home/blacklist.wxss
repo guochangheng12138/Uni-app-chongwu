@@ -37,6 +37,7 @@
 .content_nav_text.data-v-989c4bb4 {
   margin-left: -60rpx;
   font-size: 40rpx;
+  font-weight: bolder;
 }
 .content_top.data-v-989c4bb4 {
   height: 300rpx;

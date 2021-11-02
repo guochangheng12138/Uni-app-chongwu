@@ -10,7 +10,9 @@
     "pages/home/talk",
     "pages/home/talkinfo",
     "pages/home/adopt",
-    "pages/home/selectdetailed"
+    "pages/home/selectdetailed",
+    "pages/home/lookingpets",
+    "pages/home/washing"
   ],
   "subPackages": [],
   "window": {
@@ -56,6 +58,5 @@
       "desc": "获取推荐"
     }
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap.json"
+  "usingComponents": {}
 }

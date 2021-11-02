@@ -61,11 +61,14 @@ export default {
 		},
 		// 筛选详情页跳转
 		handlelistgo() {
-			const type = this.type;
-			this.$store.commit('pettypeset', { type });
-			uni.navigateTo({
-				url: './selectdetailed'
-			});
+			// 寻宠页不使用筛选按钮
+			if (this.$store.state.defsetselect !== 'd4') {
+				const type = this.type;
+				this.$store.commit('pettypeset', { type });
+				uni.navigateTo({
+					url: './selectdetailed'
+				});
+			}
 		}
 	},
 	created() {

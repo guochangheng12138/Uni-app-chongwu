@@ -37,9 +37,10 @@ export default {
 	},
 	methods: {
 		goback() {
-			uni.navigateTo({
-				url: "./blacklist"
-			});
+			// uni.navigateTo({
+			// 	url: "./blacklist"
+			// });
+			uni.navigateBack();
 		},
 		bindPickerChange: function(e) {
 			this.index = e.target.value;
@@ -86,6 +87,7 @@ export default {
 		&_text {
 			margin-left: -60rpx;
 			font-size: 40rpx;
+			font-weight: bolder;
 		}
 	}
 }

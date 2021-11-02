@@ -61,6 +61,7 @@ export default {
 					&_a {
 						margin-bottom: 30rpx;
 						font-size: 40rpx;
+						font-weight: bold;
 					}
 				}
 				&_right {
