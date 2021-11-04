@@ -62,13 +62,14 @@
   margin-bottom: 30rpx;
 }
 .input.data-v-1397067b {
+  width: 98%;
   height: 80rpx;
   box-shadow: 0 0 1rpx 3rpx #c8c7cc;
   outline: none;
   padding-left: 20rpx;
 }
 .textarea.data-v-1397067b {
-  width: 95%;
+  width: 98%;
   height: 280rpx;
   box-shadow: 0 0 1rpx 3rpx #c8c7cc;
   outline: none;

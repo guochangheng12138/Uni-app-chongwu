@@ -107,7 +107,7 @@ var components
 try {
   components = {
     uniNavBar: function() {
-      return __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ 97))
+      return __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ 113))
     }
   }
 } catch (e) {
@@ -162,7 +162,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var uniNavBar = function uniNavBar() {__webpack_require__.e(/*! require.ensure | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then((function () {return resolve(__webpack_require__(/*! @/components/uni-nav-bar/uni-nav-bar.vue */ 97));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var location = function location() {Promise.all(/*! require.ensure | components/location */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/location")]).then((function () {return resolve(__webpack_require__(/*! @/components/location.vue */ 104));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var selectInfo = function selectInfo() {__webpack_require__.e(/*! require.ensure | components/selectInfo */ "components/selectInfo").then((function () {return resolve(__webpack_require__(/*! @/components/selectInfo.vue */ 110));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var petInfo = function petInfo() {__webpack_require__.e(/*! require.ensure | components/petInfo */ "components/petInfo").then((function () {return resolve(__webpack_require__(/*! @/components/petInfo.vue */ 117));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var uniNavBar = function uniNavBar() {__webpack_require__.e(/*! require.ensure | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then((function () {return resolve(__webpack_require__(/*! @/components/uni-nav-bar/uni-nav-bar.vue */ 113));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var location = function location() {Promise.all(/*! require.ensure | components/location */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/location")]).then((function () {return resolve(__webpack_require__(/*! @/components/location.vue */ 120));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var selectInfo = function selectInfo() {__webpack_require__.e(/*! require.ensure | components/selectInfo */ "components/selectInfo").then((function () {return resolve(__webpack_require__(/*! @/components/selectInfo.vue */ 126));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var petInfo = function petInfo() {__webpack_require__.e(/*! require.ensure | components/petInfo */ "components/petInfo").then((function () {return resolve(__webpack_require__(/*! @/components/petInfo.vue */ 133));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
@@ -222,7 +222,7 @@ __webpack_require__.r(__webpack_exports__);
 
   data: function data() {
     return {
-      // 分页列表
+      // 分页tem列表
       list: [
       { imgurl: '../../static/home/list/unname.png', text: '黑名单', url: './blacklist' },
       { imgurl: '../../static/home/list/heart.png', text: '领养', url: './adopt' },
@@ -230,11 +230,11 @@ __webpack_require__.r(__webpack_exports__);
       { imgurl: '../../static/home/list/talk.png', text: '话题', url: './talk' },
       { imgurl: '../../static/home/list/wash.png', text: '洗澡', url: './washing' }],
 
-      //宠物列表
+      //宠物tem列表
       petlistall: [],
       petlist: [],
       type: 'dog',
-      // 两种方法（参数）判断是否重新渲染子组件
+      // 两种方法（参数）判断是否重新渲染筛选条子组件
       timer: '',
       sonRefresh: true };
 
@@ -252,17 +252,6 @@ __webpack_require__.r(__webpack_exports__);
       uni.navigateTo({
         url: url });
 
-    },
-    // 被子组件绑定的方法,切换宠物列表显示
-    handlelistchangeF: function handlelistchangeF(data) {
-      this.type = data;
-      var arr = [];
-      for (var i in this.petlistall) {
-        if (this.petlistall[i].type == this.type) {
-          arr.push(this.petlistall[i]);
-        }
-      }
-      this.petlist = arr;
     },
     //请求全部宠物列表，及默认小狗列表
     petlistrequest: function petlistrequest() {var _this = this;
@@ -282,13 +271,86 @@ __webpack_require__.r(__webpack_exports__);
         } });
 
     },
-    // 检查跳转来源
-    checksource: function checksource() {
-      if (this.$store.state.selectnav !== 0) {
-        this.petlist = [];
+    // 被子组件绑定的方法,切换宠物列表显示
+    handlelistchangeF: function handlelistchangeF(data) {
+      this.type = data;
+      var arr = [];
+      for (var i in this.petlistall) {
+        // 初次进入home点击
+        if (this.$store.state.selectnav == 0) {
+          if (this.petlistall[i].type == this.type) {
+            arr.push(this.petlistall[i]);
+          }
+          this.petlist = arr;
+        }
+        // 进入过筛选后点击
+        else if (this.$store.state.selectnav !== 0) {
+            // 类型与性别判断
+            if (this.petlistall[i].type == this.type) {
+              if (this.$store.state.petsexall == false && this.petlistall[i].sex == this.$store.state.petsex) {
+                arr.push(this.petlistall[i]);
+              } else if (this.$store.state.petsexall == true) {
+                arr.push(this.petlistall[i]);
+              }
+            }
+            // 年龄判断;
+            var brr = [];
+            for (var _i in arr) {
+              if (this.$store.state.petageall == false && arr[_i].age >= this.$store.state.petage1 && arr[_i].age <= this.$store.state.petage2) {
+                brr.push(arr[_i]);
+              } else if (this.$store.state.petageall == true) {
+                brr.push(arr[_i]);
+              }
+            }
+            // 身体状况判断
+            var crr = [];
+            for (var _i2 in brr) {
+              if (this.$store.state.infoselectall == false && brr[_i2].aaa == this.$store.state.infoselectaaa && brr[_i2].bbb == this.$store.state.infoselectbbb && brr[_i2].ccc == this.$store.state.infoselectccc) {
+                crr.push(brr[_i2]);
+              } else if (this.$store.state.infoselectall == true && brr[_i2].aaa !== this.$store.state.infoselectaaa && brr[_i2].bbb !== this.$store.state.infoselectbbb && brr[_i2].ccc !== this.$store.state.infoselectccc) {
+                crr.push(brr[_i2]);
+              }
+            }
+            this.petlist = crr;
+          }
       }
     },
-    // 进入页面重新渲染子组件
+    // 检查跳转来源后（是否为第一次显示）重新渲染宠物列表
+    checksource: function checksource() {
+      if (this.$store.state.selectnav !== 0) {
+        var arr = [];
+        // 类型与性别判断
+        for (var i in this.petlistall) {
+          if (this.petlistall[i].type == this.type) {
+            if (this.$store.state.petsexall == false && this.petlistall[i].sex == this.$store.state.petsex) {
+              arr.push(this.petlistall[i]);
+            } else if (this.$store.state.petsexall == true) {
+              arr.push(this.petlistall[i]);
+            }
+          }
+        };
+        // 年龄判断;
+        var brr = [];
+        for (var _i3 in arr) {
+          if (this.$store.state.petageall == false && arr[_i3].age >= this.$store.state.petage1 && arr[_i3].age <= this.$store.state.petage2) {
+            brr.push(arr[_i3]);
+          } else if (this.$store.state.petageall == true) {
+            brr.push(arr[_i3]);
+          }
+        };
+        // 身体状况判断
+        var crr = [];
+        for (var _i4 in brr) {
+          if (this.$store.state.infoselectall == false && brr[_i4].aaa == this.$store.state.infoselectaaa && brr[_i4].bbb == this.$store.state.infoselectbbb && brr[_i4].ccc == this.$store.state.infoselectccc) {
+            crr.push(brr[_i4]);
+          } else if (this.$store.state.infoselectall == true && brr[_i4].aaa !== this.$store.state.infoselectaaa && brr[_i4].bbb !== this.$store.state.infoselectbbb && brr[_i4].ccc !== this.$store.state.infoselectccc) {
+            crr.push(brr[_i4]);
+          }
+        }
+        this.petlist = crr;
+      }
+    },
+    // 进入页面重新渲染筛选条子组件
     handleLoad: function handleLoad() {var _this2 = this;
       // 方法一。。。。。。。。跳转tbar页面在小程序端!!无效!!
       this.timer = new Date().getTime();
@@ -308,7 +370,7 @@ __webpack_require__.r(__webpack_exports__);
     this.$store.commit('defset2');
     // 重新渲染子组件
     this.handleLoad();
-    // 检查跳转来源
+    // 检查跳转来源（是否为第一次显示）重新渲染宠物列表
     this.checksource();
   } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))

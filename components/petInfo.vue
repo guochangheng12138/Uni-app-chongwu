@@ -12,9 +12,9 @@
 					<view class="content_petinfo_item_info_top_right iconfont" v-if="item.type=='cat'">&#xe69e;</view>
 				</view>
 				<view class="content_petinfo_item_info_under">
-					<view class="content_petinfo_item_info_under_it content_petinfo_item_info_under_a" v-if="item.aaa==true">未免疫</view>
-					<view class="content_petinfo_item_info_under_it content_petinfo_item_info_under_b" v-if="item.bbb==true">未驱虫</view>
-					<view class="content_petinfo_item_info_under_it content_petinfo_item_info_under_c" v-if="item.ccc==true">未绝育</view>
+					<view class="content_petinfo_item_info_under_it content_petinfo_item_info_under_a" v-if="item.aaa==true">已绝育</view>
+					<view class="content_petinfo_item_info_under_it content_petinfo_item_info_under_b" v-if="item.bbb==true">已驱虫</view>
+					<view class="content_petinfo_item_info_under_it content_petinfo_item_info_under_c" v-if="item.ccc==true">已免疫</view>
 				</view>
 			</view>
 		</view>

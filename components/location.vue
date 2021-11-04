@@ -64,6 +64,7 @@ export default {
 
 					// H5端解析城市的区地址（谷歌浏览器速度过慢）///////////////////////////////////////////
 					//需要使用npm安装vue-jsonp包，并在mainfest.json的H5配置中，勾选开启腾讯地图，及填写官网申请的key，
+					//main.js中引入jsonp；
 					//教程地址https://blog.csdn.net/weixin_44694389/article/details/120157271
 					// #ifdef H5
 					that

@@ -154,13 +154,14 @@ export default {
 	margin-bottom: 30rpx;
 }
 .input {
+	width: 98%;
 	height: 80rpx;
 	box-shadow: 0 0 1rpx 3rpx $uni-border-color;
 	outline: none;
 	padding-left: 20rpx;
 }
 .textarea {
-	width: 95%;
+	width: 98%;
 	height: 280rpx;
 	box-shadow: 0 0 1rpx 3rpx $uni-border-color;
 	outline: none;

@@ -92,6 +92,7 @@
   display: block;
   text-align: center;
   margin: 20rpx auto 10rpx;
+  border-radius: 20rpx;
 }
 .content_list_item_text.data-v-92bb8f34 {
   display: block;
@@ -110,16 +111,16 @@
 .content_store.data-v-92bb8f34 {
   width: 95%;
   display: flex;
-  height: 300rpx;
+  height: 250rpx;
   align-items: center;
   border-radius: 15rpx;
   margin-bottom: 30rpx;
   background: #ffffff;
 }
 .content_store_img.data-v-92bb8f34 {
-  line-height: 300rpx;
-  width: 200rpx;
-  height: 275rpx;
+  width: 210rpx;
+  height: 250rpx;
+  line-height: 250rpx;
   display: inline-block;
 }
 .content_store_text.data-v-92bb8f34 {
@@ -136,6 +137,7 @@
 .content_store_text_c.data-v-92bb8f34 {
   width: 150rpx;
   height: 40rpx;
+  font-size: 30rpx;
   line-height: 40rpx;
   text-align: center;
   border-radius: 30rpx;

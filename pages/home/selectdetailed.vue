@@ -9,26 +9,32 @@
 
 		<view class="content_title">年龄</view>
 		<view class="content_list">
-			<view :class="['content_list_item', ageselect === index ? 'content_list_item_click' : '']" v-for="(item, index) in agelist" :key="index" @click="handleageselect(index)">
+			<view
+				:class="['content_list_item', ageselect === index ? 'content_list_item_click' : '']"
+				v-for="(item, index) in agelist"
+				:key="index"
+				@click="handleageselect(index, item.type1, item.type2)"
+			>
 				{{ item.name }}
 			</view>
 		</view>
 		<view class="content_title">性别</view>
 		<view class="content_list">
-			<view :class="['content_list_item', sexselect === index ? 'content_list_item_click' : '']" v-for="(item, index) in sexlist" :key="index" @click="handlesexselect(index)">
+			<view
+				:class="['content_list_item', sexselect === index ? 'content_list_item_click' : '']"
+				v-for="(item, index) in sexlist"
+				:key="index"
+				@click="handlesexselect(item.type, index)"
+			>
 				{{ item.name }}
 			</view>
 		</view>
 		<view class="content_title">身体状况</view>
 		<view class="content_list">
-			<view
-				:class="['content_list_item', infoselect === index ? 'content_list_item_click' : '']"
-				v-for="(item, index) in infolist"
-				:key="index"
-				@click="handleinfoselect(index)"
-			>
-				{{ item.name }}
-			</view>
+			<view @click="handleinfoselectall()" :class="['content_list_item', this.infoselectall === true ? 'content_list_item_click' : '']">全部</view>
+			<view @click="handleinfoselectaaa()" :class="['content_list_item', this.infoselectaaa === true ? 'content_list_item_click' : '']">已绝育</view>
+			<view @click="handleinfoselectbbb()" :class="['content_list_item', this.infoselectbbb === true ? 'content_list_item_click' : '']">已驱虫</view>
+			<view @click="handleinfoselectccc()" :class="['content_list_item', this.infoselectccc === true ? 'content_list_item_click' : '']">已免疫</view>
 		</view>
 
 		<view class="content_confirm" @click="confirmselect()">确定</view>
@@ -45,21 +51,31 @@ export default {
 	},
 	data() {
 		return {
+			// 渲染按钮判断
 			ageselect: 0,
 			sexselect: 0,
-			infoselect: 0,
-			// 年龄筛选
+
+			// 性别判断传参vuex
+			petsex: 'all',
+			// 年龄判断传参vuex
+			petage1: 'all',
+			petage2: 'all',
+			// 身体状况筛选（渲染按钮和身体状况传参vuex同时使用）
+			infoselectall: true,
+			infoselectaaa: false,
+			infoselectbbb: false,
+			infoselectccc: false,
+
+			// 年龄筛选tem列表
 			agelist: [
-				{ name: '全部', type: 'all' },
-				{ name: '0-1岁', type: 'one' },
-				{ name: '2-6岁', type: 'six' },
-				{ name: '7-10岁', type: 'ten' },
-				{ name: '10岁以上', type: 'fifteen' }
+				{ name: '全部', type1: 'all', type2: 'all' },
+				{ name: '0-1岁', type1: 0, type2: 1 },
+				{ name: '2-6岁', type1: 2, type2: 6 },
+				{ name: '7-10岁', type1: 7, type2: 10 },
+				{ name: '10岁以上', type1: 10, type2: 100 }
 			],
-			// 性别筛选
-			sexlist: [{ name: '全部', type: 'all' }, { name: '公', type: 'male' }, { name: '母', type: 'female' }],
-			// 身体状况筛选
-			infolist: [{ name: '全部', type: 'all' }, { name: '已绝育', type: 'aaa' }, { name: '已驱虫', type: 'bbb' }, { name: '已接种', type: 'ccc' }]
+			// 性别筛选tem列表
+			sexlist: [{ name: '全部', type: 'all' }, { name: '公', type: 'male' }, { name: '母', type: 'female' }]
 		};
 	},
 	methods: {
@@ -71,42 +87,99 @@ export default {
 		goback() {
 			uni.navigateBack();
 		},
-		handleageselect(index) {
+		
+		// 筛选按钮点击
+		// 年龄选择
+		handleageselect(index, type1, type2) {
 			this.ageselect = index;
-			console.log(index);
-			// this.id="adtoper"
+			this.petage1 = type1;
+			this.petage2 = type2;
 		},
-		handlesexselect(index) {
+		// 性别选择
+		handlesexselect(type, index) {
 			this.sexselect = index;
-			console.log(index);
-			// this.id="adtoper"
+			this.petsex = type;
 		},
-		handleinfoselect(index) {
-			this.infoselect = index;
-			console.log(index);
-			// this.id="adtoper"
+		// 身体情况选择
+		handleinfoselectall(index) {
+			this.infoselectall = !this.infoselectall;
+			if (this.infoselectall == true) {
+				this.infoselectaaa = false;
+				this.infoselectbbb = false;
+				this.infoselectccc = false;
+			}
 		},
-		// 确定跳转
+		handleinfoselectaaa(index) {
+			this.infoselectaaa = !this.infoselectaaa;
+			if (this.infoselectaaa == true) {
+				this.infoselectall = false;
+			}
+		},
+		handleinfoselectbbb(index) {
+			this.infoselectbbb = !this.infoselectbbb;
+			if (this.infoselectbbb == true) {
+				this.infoselectall = false;
+			}
+		},
+		handleinfoselectccc(index) {
+			this.infoselectccc = !this.infoselectccc;
+			if (this.infoselectccc == true) {
+				this.infoselectall = false;
+			}
+		},
+
+		// 确定跳转vuex传参（列表参数与筛选条参数）
 		confirmselect() {
-			// 判断是从哪个页面的筛选条跳转筛选详情，并在点击后设置对应的样式修改校验参数
-			if (this.$store.state.defsetselect == "d2") {
+			// 性别判断传参
+			const petsex = this.petsex;
+			const sexselect = this.sexselect;
+			this.$store.commit('handlesexselect', { petsex, sexselect });
+			// 年龄判断传参
+			const petage1 = this.petage1;
+			const petage2 = this.petage2;
+			const ageselect = this.ageselect;
+			this.$store.commit('handleageselect', { petage1, petage2, ageselect });
+			// 身体状况判断
+			const infoselectall = this.infoselectall;
+			const infoselectaaa = this.infoselectaaa;
+			const infoselectbbb = this.infoselectbbb;
+			const infoselectccc = this.infoselectccc;
+			this.$store.commit('handleinfoselect', { infoselectall, infoselectaaa, infoselectbbb, infoselectccc });
+
+			// 判断是从哪个页面的筛选条跳转筛选详情，并在点击后设置对应的筛选条样式修改校验参数
+			if (this.$store.state.defsetselect == 'd2') {
 				this.$store.commit('navset2');
 				uni.switchTab({
 					url: './home'
 				});
-			} else if (this.$store.state.defsetselect == "d3") {
+			} else if (this.$store.state.defsetselect == 'd3') {
 				this.$store.commit('navset3');
 				uni.navigateTo({
 					url: './adopt'
 				});
-			}else if (this.$store.state.defsetselect == "d4") {
-				this.$store.commit('navset4');
-				console.log(2)
-				uni.navigateTo({
-					url: './lookingpets'
-				});
 			}
+			// else if (this.$store.state.defsetselect == "d4") {
+			// 	this.$store.commit('navset4');
+			// 	uni.navigateTo({
+			// 		url: './lookingpets'
+			// 	});
+			// }
 		}
+	},
+	onShow() {
+		// 再次进入页面渲染筛选按钮选中状态
+		// 性别按钮选中
+		this.sexselect = this.$store.state.sexselect;
+		this.petsex = this.$store.state.petsex;
+		// 年龄按钮选中
+		this.ageselect = this.$store.state.ageselect;
+		this.petage1 = this.$store.state.petage1;
+		this.petage2 = this.$store.state.petage2;
+		// 身体状况按钮选中
+		this.infoselectall = this.$store.state.infoselectall;
+		this.infoselectaaa = this.$store.state.infoselectaaa;
+		this.infoselectbbb = this.$store.state.infoselectbbb;
+		this.infoselectccc = this.$store.state.infoselectccc;
 	}
 };
 </script>

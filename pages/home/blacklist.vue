@@ -15,8 +15,8 @@
 			<view class="content_top_text">
 				<view @click="handlelistgo1()">举报</view>
 				<view @click="handlelistgo2()">查询</view>
-				<!-- <view @click="handlelistgo3()">转发</view> -->
-				<view>转发</view>
+				<view @click="handlelistgo3()">转发</view>
+				<!-- <view>转发</view> -->
 			</view>
 		</view>
 
@@ -95,14 +95,28 @@ export default {
 			uni.navigateTo({
 				url: './lookup'
 			});
+		},
+		handlelistgo3() {
+		// uni.request({
+		//     url: 'http://localhost:3000/index',//仅为示例，并非真实接口地址。
+		//     // url: 'api/index',//仅为示例，并非真实接口地址。
+		// 	 method:"GET",
+		// 	 timeout:10000,
+		// 	 dataType:"json",
+		//     header: {
+		//         'custom-header': 'hello' //自定义请求头信息
+		//     },
+		//     data: {
+
+		//     },
+		//     success: (res) => {
+		//         console.log(res);
+		//     },
+		// 	 fail:()=>{
+		// 		 console.log(2);
+		// 	 }
+		// });
 		}
-		// handlelistgo3() {
-		// 	this.$store.commit('jiayi');
-		// 	// 需要重复新赋值,不会自动响应,也可以使用computed
-		// 	this.num=this.$store.state.num
-		// 	//
-		// 	this.$store.commit("blacklistshow",[this.blacklist,this.curentIndex])
-		// }
 	},
 	onShow() {
 		this.handletypeselect1();

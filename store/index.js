@@ -16,44 +16,121 @@ const getLocalCarList = () => {
 
 export default new Vuex.Store({
 	state: {
-		pettype:"dog",
+		//筛选条数据相关
+		// 请求宠物索引(给筛选条按钮选中用)
+		petindex: 0,
+		// 筛选详情页索引（给筛选详情页按钮选中用）
+		ageselect: 0,
+		sexselect: 0,
+		// 身体状况（给筛选详情页按钮选中，以及宠物列表渲染参数用）
+		infoselectall: true,
+		infoselectaaa: false,
+		infoselectbbb: false,
+		infoselectccc: false,
+		// 设置筛选请求宠物类型（给主页列表渲染用）
+		pettype: "dog",
+		// 筛选详情页参数修改（给主页列表渲染用）
+		//性别
+		petsex: "all",
+		petsexall: true,
+		//年龄
+		petage1: "all",
+		petage2: "all",
+		petageall: true,
+
+		//筛选条样式相关
 		// 判断筛选条处于哪个页面（还未进入详情）
-		defsetselect:0,
+		defsetselect: 0,
 		// 判断筛选条筛选按钮是否改变样式(已进入过详情，并点击确定返回)
-		selectnav:0
+		selectnav: 0
 	},
-	mutations:{
-		// 主页设置筛选请求宠物类型
-		pettypeset(state,payload){
-			const {type}=payload;
-			state.pettype=type;
-			// setLocalCarList(state);
+	mutations: {
+		//筛选条数据相关
+		// 请求宠物索引(给筛选条按钮选中用)
+		petindexset(state, payload) {
+			const {
+				index
+			} = payload;
+			state.petindex = index;
 		},
+		// 设置筛选请求宠物类型（给主页列表渲染用）
+		pettypeset(state, payload) {
+			const {
+				type
+			} = payload;
+			state.pettype = type;
+		},
+		// 筛选详情页参数修改（给主页列表渲染用）
+		//性别
+		handlesexselect(state, payload) {
+			const {
+				petsex,
+				sexselect
+			} = payload;
+			state.sexselect = sexselect;
+			if (petsex !== "all") {
+				state.petsex = petsex;
+				state.petsexall = false;
+			} else {
+				state.petsexall = true;
+			}
+		},
+		// 年龄
+		handleageselect(state, payload) {
+			const {
+				petage1,
+				petage2,
+				ageselect
+			} = payload;
+			state.ageselect = ageselect;
+			if (petage1 !== "all") {
+				state.petage1 = petage1;
+				state.petage2 = petage2;
+				state.petageall = false;
+			} else {
+				state.petageall = true;
+			}
+		},
+		// 身体状况
+		handleinfoselect(state, payload) {
+			const {
+				infoselectall,
+				infoselectaaa,
+				infoselectbbb,
+				infoselectccc
+			} = payload;
+			state.infoselectall = infoselectall;
+			state.infoselectaaa = infoselectaaa;
+			state.infoselectbbb = infoselectbbb;
+			state.infoselectccc = infoselectccc;
+		},
+		
+		//筛选条样式相关
 		// 判断筛选条处于哪个页面（还未进入详情）
 		//home页
-		defset2(state){
-			state.defsetselect="d2";
+		defset2(state) {
+			state.defsetselect = "d2";
 		},
 		//adopt页
-		defset3(state){
-			state.defsetselect="d3";
+		defset3(state) {
+			state.defsetselect = "d3";
 		},
 		// lookingpets页
-		defset4(state){
-			state.defsetselect="d4";
+		defset4(state) {
+			state.defsetselect = "d4";
 		},
 		// 判断筛选条筛选按钮是否改变样式(已进入过详情，并点击确定返回)
 		// home页
-		navset2(state){
-			state.selectnav="n2";
+		navset2(state) {
+			state.selectnav = "n2";
 		},
 		// adopt页
-		navset3(state){
-			state.selectnav="n3";
-		},	
+		navset3(state) {
+			state.selectnav = "n3";
+		},
 		// lookingpets页
-		navset4(state){
-			state.selectnav="n4";
+		navset4(state) {
+			state.selectnav = "n4";
 		},
 	}
 })

@@ -108,6 +108,7 @@ export default {
 	margin: 0 auto 0;
 	background: #f5f5f5;
 	padding-bottom: 300rpx;
+	height: 1400rpx;
 	&_nav {
 		&_left {
 			font-size: 70rpx;

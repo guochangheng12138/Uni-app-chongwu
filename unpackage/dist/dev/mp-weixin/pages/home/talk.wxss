@@ -43,6 +43,7 @@
   background: #f5f5f5;
   margin-top: 50rpx;
   height: 580rpx;
+  border-radius: 20rpx;
 }
 .content_list_img.data-v-a18e6c9a {
   width: 100%;

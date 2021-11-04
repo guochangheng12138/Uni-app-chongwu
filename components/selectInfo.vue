@@ -64,7 +64,13 @@ export default {
 			// 寻宠页不使用筛选按钮
 			if (this.$store.state.defsetselect !== 'd4') {
 				const type = this.type;
+				const index = this.curentIndex;
+				// 利用vuex保留三个按钮的点击状态
+				//给列表用
 				this.$store.commit('pettypeset', { type });
+				// 给筛选条用
+				this.$store.commit('petindexset', { index });
+				
 				uni.navigateTo({
 					url: './selectdetailed'
 				});
@@ -77,7 +83,11 @@ export default {
 			this.selectinfos = true;
 		} else if (this.$store.state.selectnav == 'n3' && this.$store.state.defsetselect == 'd3') {
 			this.selectinfos = true;
-		}
+		};
+	},
+	mounted(){
+		//根据vuex,设置筛选条按钮选中位置
+		this.curentIndex=this.$store.state.petindex
 	}
 };
 </script>

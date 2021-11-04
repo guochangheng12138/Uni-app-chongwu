@@ -96,7 +96,7 @@ var components
 try {
   components = {
     uniNavBar: function() {
-      return __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ 97))
+      return __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ 113))
     }
   }
 } catch (e) {
@@ -153,7 +153,13 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var uniNavBar = function uniNavBar() {__webpack_require__.e(/*! require.ensure | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then((function () {return resolve(__webpack_require__(/*! @/components/uni-nav-bar/uni-nav-bar.vue */ 97));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var uniNavBar = function uniNavBar() {__webpack_require__.e(/*! require.ensure | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then((function () {return resolve(__webpack_require__(/*! @/components/uni-nav-bar/uni-nav-bar.vue */ 113));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
+
+
+
+
 
 
 
@@ -200,21 +206,31 @@ __webpack_require__.r(__webpack_exports__);
 
   data: function data() {
     return {
+      // 渲染按钮判断
       ageselect: 0,
       sexselect: 0,
-      infoselect: 0,
-      // 年龄筛选
-      agelist: [
-      { name: '全部', type: 'all' },
-      { name: '0-1岁', type: 'one' },
-      { name: '2-6岁', type: 'six' },
-      { name: '7-10岁', type: 'ten' },
-      { name: '10岁以上', type: 'fifteen' }],
 
-      // 性别筛选
-      sexlist: [{ name: '全部', type: 'all' }, { name: '公', type: 'male' }, { name: '母', type: 'female' }],
-      // 身体状况筛选
-      infolist: [{ name: '全部', type: 'all' }, { name: '已绝育', type: 'aaa' }, { name: '已驱虫', type: 'bbb' }, { name: '已接种', type: 'ccc' }] };
+      // 性别判断传参vuex
+      petsex: 'all',
+      // 年龄判断传参vuex
+      petage1: 'all',
+      petage2: 'all',
+      // 身体状况筛选（渲染按钮和身体状况传参vuex同时使用）
+      infoselectall: true,
+      infoselectaaa: false,
+      infoselectbbb: false,
+      infoselectccc: false,
+
+      // 年龄筛选tem列表
+      agelist: [
+      { name: '全部', type1: 'all', type2: 'all' },
+      { name: '0-1岁', type1: 0, type2: 1 },
+      { name: '2-6岁', type1: 2, type2: 6 },
+      { name: '7-10岁', type1: 7, type2: 10 },
+      { name: '10岁以上', type1: 10, type2: 100 }],
+
+      // 性别筛选tem列表
+      sexlist: [{ name: '全部', type: 'all' }, { name: '公', type: 'male' }, { name: '母', type: 'female' }] };
 
   },
   methods: {
@@ -226,42 +242,100 @@ __webpack_require__.r(__webpack_exports__);
     goback: function goback() {
       uni.navigateBack();
     },
-    handleageselect: function handleageselect(index) {
+
+    // 筛选按钮点击
+    // 年龄选择
+    handleageselect: function handleageselect(index, type1, type2) {
       this.ageselect = index;
-      console.log(index);
-      // this.id="adtoper"
+      this.petage1 = type1;
+      this.petage2 = type2;
     },
-    handlesexselect: function handlesexselect(index) {
+    // 性别选择
+    handlesexselect: function handlesexselect(type, index) {
       this.sexselect = index;
-      console.log(index);
-      // this.id="adtoper"
+      this.petsex = type;
     },
-    handleinfoselect: function handleinfoselect(index) {
-      this.infoselect = index;
-      console.log(index);
-      // this.id="adtoper"
+    // 身体情况选择
+    handleinfoselectall: function handleinfoselectall(index) {
+      this.infoselectall = !this.infoselectall;
+      if (this.infoselectall == true) {
+        this.infoselectaaa = false;
+        this.infoselectbbb = false;
+        this.infoselectccc = false;
+      }
     },
-    // 确定跳转
+    handleinfoselectaaa: function handleinfoselectaaa(index) {
+      this.infoselectaaa = !this.infoselectaaa;
+      if (this.infoselectaaa == true) {
+        this.infoselectall = false;
+      }
+    },
+    handleinfoselectbbb: function handleinfoselectbbb(index) {
+      this.infoselectbbb = !this.infoselectbbb;
+      if (this.infoselectbbb == true) {
+        this.infoselectall = false;
+      }
+    },
+    handleinfoselectccc: function handleinfoselectccc(index) {
+      this.infoselectccc = !this.infoselectccc;
+      if (this.infoselectccc == true) {
+        this.infoselectall = false;
+      }
+    },
+
+    // 确定跳转vuex传参（列表参数与筛选条参数）
     confirmselect: function confirmselect() {
-      // 判断是从哪个页面的筛选条跳转筛选详情，并在点击后设置对应的样式修改校验参数
-      if (this.$store.state.defsetselect == "d2") {
+      // 性别判断传参
+      var petsex = this.petsex;
+      var sexselect = this.sexselect;
+      this.$store.commit('handlesexselect', { petsex: petsex, sexselect: sexselect });
+      // 年龄判断传参
+      var petage1 = this.petage1;
+      var petage2 = this.petage2;
+      var ageselect = this.ageselect;
+      this.$store.commit('handleageselect', { petage1: petage1, petage2: petage2, ageselect: ageselect });
+      // 身体状况判断
+      var infoselectall = this.infoselectall;
+      var infoselectaaa = this.infoselectaaa;
+      var infoselectbbb = this.infoselectbbb;
+      var infoselectccc = this.infoselectccc;
+      this.$store.commit('handleinfoselect', { infoselectall: infoselectall, infoselectaaa: infoselectaaa, infoselectbbb: infoselectbbb, infoselectccc: infoselectccc });
+
+      // 判断是从哪个页面的筛选条跳转筛选详情，并在点击后设置对应的筛选条样式修改校验参数
+      if (this.$store.state.defsetselect == 'd2') {
         this.$store.commit('navset2');
         uni.switchTab({
           url: './home' });
 
-      } else if (this.$store.state.defsetselect == "d3") {
+      } else if (this.$store.state.defsetselect == 'd3') {
         this.$store.commit('navset3');
         uni.navigateTo({
           url: './adopt' });
 
-      } else if (this.$store.state.defsetselect == "d4") {
-        this.$store.commit('navset4');
-        console.log(2);
-        uni.navigateTo({
-          url: './lookingpets' });
-
       }
-    } } };exports.default = _default;
+      // else if (this.$store.state.defsetselect == "d4") {
+      // 	this.$store.commit('navset4');
+      // 	uni.navigateTo({
+      // 		url: './lookingpets'
+      // 	});
+      // }
+    } },
+
+  onShow: function onShow() {
+    // 再次进入页面渲染筛选按钮选中状态
+    // 性别按钮选中
+    this.sexselect = this.$store.state.sexselect;
+    this.petsex = this.$store.state.petsex;
+    // 年龄按钮选中
+    this.ageselect = this.$store.state.ageselect;
+    this.petage1 = this.$store.state.petage1;
+    this.petage2 = this.$store.state.petage2;
+    // 身体状况按钮选中
+    this.infoselectall = this.$store.state.infoselectall;
+    this.infoselectaaa = this.$store.state.infoselectaaa;
+    this.infoselectbbb = this.$store.state.infoselectbbb;
+    this.infoselectccc = this.$store.state.infoselectccc;
+  } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

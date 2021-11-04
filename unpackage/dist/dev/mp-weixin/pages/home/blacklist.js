@@ -96,7 +96,7 @@ var components
 try {
   components = {
     uniNavBar: function() {
-      return __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ 97))
+      return __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ 113))
     }
   }
 } catch (e) {
@@ -153,7 +153,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var uniNavBar = function uniNavBar() {__webpack_require__.e(/*! require.ensure | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then((function () {return resolve(__webpack_require__(/*! @/components/uni-nav-bar/uni-nav-bar.vue */ 97));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var uniNavBar = function uniNavBar() {__webpack_require__.e(/*! require.ensure | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then((function () {return resolve(__webpack_require__(/*! @/components/uni-nav-bar/uni-nav-bar.vue */ 113));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
@@ -250,15 +250,29 @@ __webpack_require__.r(__webpack_exports__);
       uni.navigateTo({
         url: './lookup' });
 
-    }
-    // handlelistgo3() {
-    // 	this.$store.commit('jiayi');
-    // 	// 需要重复新赋值,不会自动响应,也可以使用computed
-    // 	this.num=this.$store.state.num
-    // 	//
-    // 	this.$store.commit("blacklistshow",[this.blacklist,this.curentIndex])
-    // }
-  },
+    },
+    handlelistgo3: function handlelistgo3() {
+      // uni.request({
+      //     url: 'http://localhost:3000/index',//仅为示例，并非真实接口地址。
+      //     // url: 'api/index',//仅为示例，并非真实接口地址。
+      // 	 method:"GET",
+      // 	 timeout:10000,
+      // 	 dataType:"json",
+      //     header: {
+      //         'custom-header': 'hello' //自定义请求头信息
+      //     },
+      //     data: {
+
+      //     },
+      //     success: (res) => {
+      //         console.log(res);
+      //     },
+      // 	 fail:()=>{
+      // 		 console.log(2);
+      // 	 }
+      // });
+    } },
+
   onShow: function onShow() {
     this.handletypeselect1();
   } };exports.default = _default;

@@ -29,6 +29,7 @@
   margin: 0 auto 0;
   background: #f5f5f5;
   padding-bottom: 300rpx;
+  height: 1400rpx;
 }
 .content_nav_left {
   font-size: 70rpx;

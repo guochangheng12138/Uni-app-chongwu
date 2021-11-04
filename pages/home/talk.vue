@@ -108,6 +108,7 @@ export default {
 		background: #f5f5f5;
 		margin-top: 50rpx;
 		height: 580rpx;
+		border-radius: 20rpx;
 		&_img {
 			width: 100%;
 			height: 350rpx;

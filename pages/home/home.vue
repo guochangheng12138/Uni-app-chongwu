@@ -58,7 +58,7 @@ export default {
 	},
 	data() {
 		return {
-			// 分页列表
+			// 分页tem列表
 			list: [
 				{ imgurl: '../../static/home/list/unname.png', text: '黑名单', url: './blacklist' },
 				{ imgurl: '../../static/home/list/heart.png', text: '领养', url: './adopt' },
@@ -66,11 +66,11 @@ export default {
 				{ imgurl: '../../static/home/list/talk.png', text: '话题', url: './talk' },
 				{ imgurl: '../../static/home/list/wash.png', text: '洗澡', url: './washing' }
 			],
-			//宠物列表
+			//宠物tem列表
 			petlistall: [],
 			petlist: [],
 			type: 'dog',
-			// 两种方法（参数）判断是否重新渲染子组件
+			// 两种方法（参数）判断是否重新渲染筛选条子组件
 			timer: '',
 			sonRefresh: true
 		};
@@ -88,17 +88,6 @@ export default {
 			uni.navigateTo({
 				url: url
 			});
-		},
-		// 被子组件绑定的方法,切换宠物列表显示
-		handlelistchangeF(data) {
-			this.type = data;
-			const arr = [];
-			for (let i in this.petlistall) {
-				if (this.petlistall[i].type == this.type) {
-					arr.push(this.petlistall[i]);
-				}
-			}
-			this.petlist = arr;
 		},
 		//请求全部宠物列表，及默认小狗列表
 		petlistrequest() {
@@ -118,13 +107,86 @@ export default {
 				}
 			});
 		},
-		// 检查跳转来源
-		checksource() {
-			if (this.$store.state.selectnav !== 0) {
-				this.petlist = [];
+		// 被子组件绑定的方法,切换宠物列表显示
+		handlelistchangeF(data) {
+			this.type = data;
+			const arr = [];
+			for (let i in this.petlistall) {
+				// 初次进入home点击
+				if (this.$store.state.selectnav == 0) {
+					if (this.petlistall[i].type == this.type) {
+						arr.push(this.petlistall[i]);
+					}
+					this.petlist = arr;
+				}
+				// 进入过筛选后点击
+				else if (this.$store.state.selectnav !== 0) {
+					// 类型与性别判断
+					if (this.petlistall[i].type == this.type) {
+						if (this.$store.state.petsexall == false && this.petlistall[i].sex == this.$store.state.petsex) {
+							arr.push(this.petlistall[i]);
+						} else if (this.$store.state.petsexall == true) {
+							arr.push(this.petlistall[i]);
+						}
+					}
+					// 年龄判断;
+					const brr = [];
+					for (let i in arr) {
+						if (this.$store.state.petageall == false && arr[i].age >= this.$store.state.petage1 && arr[i].age <= this.$store.state.petage2) {
+							brr.push(arr[i]);
+						} else if (this.$store.state.petageall == true) {
+							brr.push(arr[i]);
+						}
+					}
+					// 身体状况判断
+					const crr = [];
+					for (let i in brr) {
+						if (this.$store.state.infoselectall == false && brr[i].aaa == this.$store.state.infoselectaaa && brr[i].bbb == this.$store.state.infoselectbbb && brr[i].ccc == this.$store.state.infoselectccc) {
+							crr.push(brr[i]);
+						} else if (this.$store.state.infoselectall == true && brr[i].aaa !== this.$store.state.infoselectaaa && brr[i].bbb !== this.$store.state.infoselectbbb && brr[i].ccc !== this.$store.state.infoselectccc) {
+							crr.push(brr[i]);
+						}
+					}
+					this.petlist = crr;
+				}
 			}
 		},
-		// 进入页面重新渲染子组件
+		// 检查跳转来源后（是否为第一次显示）重新渲染宠物列表
+		checksource() {
+			if (this.$store.state.selectnav !== 0) {
+				const arr = [];
+				// 类型与性别判断
+				for (let i in this.petlistall) {
+					if (this.petlistall[i].type == this.type) {
+						if (this.$store.state.petsexall == false && this.petlistall[i].sex == this.$store.state.petsex) {
+							arr.push(this.petlistall[i]);
+						} else if (this.$store.state.petsexall == true) {
+							arr.push(this.petlistall[i]);
+						}
+					}
+				};
+				// 年龄判断;
+				const brr = [];
+				for (let i in arr) {
+					if (this.$store.state.petageall == false && arr[i].age >= this.$store.state.petage1 && arr[i].age <= this.$store.state.petage2) {
+						brr.push(arr[i]);
+					} else if (this.$store.state.petageall == true) {
+						brr.push(arr[i]);
+					}
+				};
+				// 身体状况判断
+				const crr = [];
+				for (let i in brr) {
+					if (this.$store.state.infoselectall == false && brr[i].aaa == this.$store.state.infoselectaaa && brr[i].bbb == this.$store.state.infoselectbbb && brr[i].ccc == this.$store.state.infoselectccc) {
+						crr.push(brr[i]);
+					} else if (this.$store.state.infoselectall == true && brr[i].aaa !== this.$store.state.infoselectaaa && brr[i].bbb !== this.$store.state.infoselectbbb && brr[i].ccc !== this.$store.state.infoselectccc) {
+						crr.push(brr[i]);
+					}
+				}
+				this.petlist = crr;
+			}
+		},
+		// 进入页面重新渲染筛选条子组件
 		handleLoad() {
 			// 方法一。。。。。。。。跳转tbar页面在小程序端!!无效!!
 			this.timer = new Date().getTime();
@@ -144,7 +206,7 @@ export default {
 		this.$store.commit('defset2');
 		// 重新渲染子组件
 		this.handleLoad();
-		// 检查跳转来源
+		// 检查跳转来源（是否为第一次显示）重新渲染宠物列表
 		this.checksource();
 	}
 };
@@ -193,7 +255,7 @@ export default {
 			box-sizing: border-box;
 			border-radius: 20rpx;
 			border: solid white 10rpx;
-			&_img{
+			&_img {
 				width: 100%;
 				height: 100%;
 				border-radius: 20rpx;
@@ -216,6 +278,7 @@ export default {
 				display: block;
 				text-align: center;
 				margin: 20rpx auto 10rpx;
+				border-radius: 20rpx;
 			}
 			&_text {
 				display: block;
@@ -236,15 +299,15 @@ export default {
 	&_store {
 		width: 95%;
 		display: flex;
-		height: 300rpx;
+		height: 250rpx;
 		align-items: center;
 		border-radius: 15rpx;
 		margin-bottom: 30rpx;
 		background: $uni-bg-color;
 		&_img {
-			line-height: 300rpx;
-			width: 200rpx;
-			height: 275rpx;
+			width: 210rpx;
+			height: 250rpx;
+			line-height: 250rpx;
 			display: inline-block;
 		}
 		&_text {
@@ -260,6 +323,7 @@ export default {
 			&_c {
 				width: 150rpx;
 				height: 40rpx;
+				font-size: 30rpx;
 				line-height: 40rpx;
 				text-align: center;
 				border-radius: 30rpx;
