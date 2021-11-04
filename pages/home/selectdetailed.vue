@@ -31,10 +31,10 @@
 		</view>
 		<view class="content_title">身体状况</view>
 		<view class="content_list">
-			<view @click="handleinfoselectall()" :class="['content_list_item', this.infoselectall === true ? 'content_list_item_click' : '']">全部</view>
-			<view @click="handleinfoselectaaa()" :class="['content_list_item', this.infoselectaaa === true ? 'content_list_item_click' : '']">已绝育</view>
-			<view @click="handleinfoselectbbb()" :class="['content_list_item', this.infoselectbbb === true ? 'content_list_item_click' : '']">已驱虫</view>
-			<view @click="handleinfoselectccc()" :class="['content_list_item', this.infoselectccc === true ? 'content_list_item_click' : '']">已免疫</view>
+			<view @click="handleinfoselectall()" :class="['content_list_item',infoselectall == true ? 'content_list_item_click' : '']">全部</view>
+			<view @click="handleinfoselectaaa()" :class="['content_list_item',infoselectaaa == true ? 'content_list_item_click' : '']">已绝育</view>
+			<view @click="handleinfoselectbbb()" :class="['content_list_item',infoselectbbb == true ? 'content_list_item_click' : '']">已驱虫</view>
+			<view @click="handleinfoselectccc()" :class="['content_list_item',infoselectccc == true ? 'content_list_item_click' : '']">已免疫</view>
 		</view>
 
 		<view class="content_confirm" @click="confirmselect()">确定</view>

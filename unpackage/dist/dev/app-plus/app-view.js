@@ -2091,21 +2091,21 @@ var render = function() {
                     ? _c(
                         "v-uni-view",
                         { staticClass: _vm._$g(11, "sc"), attrs: { _i: 11 } },
-                        [_vm._v("未免疫")]
+                        [_vm._v("已绝育")]
                       )
                     : _vm._e(),
                   _vm._$g(12, "i")
                     ? _c(
                         "v-uni-view",
                         { staticClass: _vm._$g(12, "sc"), attrs: { _i: 12 } },
-                        [_vm._v("未驱虫")]
+                        [_vm._v("已驱虫")]
                       )
                     : _vm._e(),
                   _vm._$g(13, "i")
                     ? _c(
                         "v-uni-view",
                         { staticClass: _vm._$g(13, "sc"), attrs: { _i: 13 } },
-                        [_vm._v("未绝育")]
+                        [_vm._v("已免疫")]
                       )
                     : _vm._e()
                 ],
@@ -4803,7 +4803,7 @@ var render = function() {
                 }
               }
             },
-            [_vm._v("已接种")]
+            [_vm._v("已免疫")]
           )
         ],
         1
