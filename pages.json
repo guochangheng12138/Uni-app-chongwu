@@ -11,7 +11,8 @@
 			"path": "pages/release/release",
 			"style": {
 				"navigationBarTitleText": "发布",
-				"enablePullDownRefresh": false
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
 			}
 
 		}, {
@@ -75,7 +76,15 @@
 				"enablePullDownRefresh": false
 			}
 		}
-	],
+	    ,{
+            "path" : "pages/release/adoptrelease",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+        }
+    ],
 	"tabBar": {
 		"color": "#7A7E83",
 		"selectedColor": "#3cc51f",

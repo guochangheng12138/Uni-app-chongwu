@@ -1,0 +1,154 @@
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.xuanze.data-v-7e347fd8 {
+  display: flex;
+  flex-wrap: wrap;
+}
+.imgpre.data-v-7e347fd8 {
+  height: 200rpx;
+  width: 200rpx;
+}
+.shangchuantupian.data-v-7e347fd8 {
+  font-size: 35rpx;
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+}
+.iconfont5.data-v-7e347fd8 {
+  font-size: 200rpx;
+}
+.contenttem.data-v-7e347fd8 {
+  width: 95%;
+  margin: 30rpx auto 0;
+  background-color: #fff;
+  padding-bottom: 100rpx;
+  padding-top: 20rpx;
+}
+.TIitem.data-v-7e347fd8 {
+  display: flex;
+  margin-bottom: 30rpx;
+  border-bottom: solid 1rpx;
+}
+.radio.data-v-7e347fd8 {
+  line-height: 80rpx;
+  margin-right: 30rpx;
+}
+.radiocontent.data-v-7e347fd8 {
+  flex: 1;
+  text-align: right;
+}
+.title.data-v-7e347fd8 {
+  font: 60rpx;
+  line-height: 80rpx;
+  width: 130rpx;
+}
+.input.data-v-7e347fd8 {
+  flex: 1;
+  height: 80rpx;
+  outline: none;
+  border: none;
+  text-align: right;
+}
+.submit.data-v-7e347fd8 {
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  background-color: #f0ad4e;
+  margin: 50rpx auto 30rpx;
+  border-radius: 20rpx;
+  color: #ffffff;
+}
+
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.content.data-v-0766b1d4 {
+  width: 95%;
+  margin: 0 auto 0;
+  padding-bottom: 30rpx;
+}
+.content_nav_left.data-v-0766b1d4 {
+  font-size: 70rpx;
+  margin: 0;
+}
+.content_nav_text.data-v-0766b1d4 {
+  margin-left: -60rpx;
+  font-size: 40rpx;
+  font-weight: bolder;
+}
+.content_top.data-v-0766b1d4 {
+  box-sizing: border-box;
+  height: 275rpx;
+  margin-bottom: 50rpx;
+  background-color: #ffff;
+}
+.content_top_img.data-v-0766b1d4 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 200rpx;
+  width: 100%;
+  border: solid #fff;
+  box-sizing: border-box;
+}
+.content_top_img_item.data-v-0766b1d4 {
+  height: 150rpx;
+}
+.content_top_img_item_click.data-v-0766b1d4 {
+  border: solid yellow;
+}
+.content_top_text.data-v-0766b1d4 {
+  display: flex;
+  justify-content: space-between;
+}
+.content_top_text_item.data-v-0766b1d4 {
+  text-align: center;
+  width: 33.333333%;
+}
+

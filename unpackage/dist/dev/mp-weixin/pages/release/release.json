@@ -1,5 +1,11 @@
 {
   "navigationBarTitleText": "发布",
   "enablePullDownRefresh": false,
-  "usingComponents": {}
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
+    "adoptrelease": "/pages/release/adoptrelease",
+    "findrelease": "/pages/release/findrelease",
+    "juanzeng": "/pages/release/juanzeng"
+  }
 }

@@ -12,7 +12,8 @@
     "pages/home/adopt",
     "pages/home/selectdetailed",
     "pages/home/lookingpets",
-    "pages/home/washing"
+    "pages/home/washing",
+    "pages/release/adoptrelease"
   ],
   "subPackages": [],
   "window": {
