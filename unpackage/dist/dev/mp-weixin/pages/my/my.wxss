@@ -1,0 +1,121 @@
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.submit.data-v-0be17cc6 {
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  background-color: #f0ad4e;
+  margin: 50rpx auto 30rpx;
+  border-radius: 20rpx;
+  color: #ffffff;
+}
+.iconfonts.data-v-0be17cc6 {
+  font-size: 60rpx;
+  color: #fb7426;
+}
+.iconfont2.data-v-0be17cc6 {
+  font-size: 50rpx;
+  color: #fb7426;
+  text-align: center;
+}
+.content.data-v-0be17cc6 {
+  width: 95%;
+  margin: 0 auto 0;
+  background: #fff;
+  padding-bottom: 100rpx;
+}
+.content_bgtop.data-v-0be17cc6 {
+  width: 100%;
+  height: 390rpx;
+  background-image: linear-gradient(239deg, #fb7426 0%, #ffbdac 100%);
+  border-bottom-left-radius: 90% 40%;
+  border-bottom-right-radius: 90% 40%;
+}
+.content_info.data-v-0be17cc6 {
+  width: 95%;
+  margin: -350rpx auto 0;
+}
+.content_info_header.data-v-0be17cc6 {
+  display: flex;
+  margin-bottom: 50rpx;
+  margin-top: 50rpx;
+}
+.content_info_header_icon.data-v-0be17cc6 {
+  border-radius: 50%;
+  border: solid #fff;
+  width: 100rpx;
+  height: 100rpx;
+}
+.content_info_header_name.data-v-0be17cc6 {
+  line-height: 100rpx;
+  font-size: 40rpx;
+  padding-left: 20rpx;
+  color: #fff;
+}
+.content_info_myorders.data-v-0be17cc6 {
+  border-radius: 15rpx;
+  background-color: #ffffff;
+  margin-bottom: 50rpx;
+  box-shadow: 0 0 1rpx 5rpx #a7a7a7;
+  padding-bottom: 40rpx;
+}
+.content_info_myorders_title.data-v-0be17cc6 {
+  display: flex;
+  padding: 20rpx;
+  justify-content: space-between;
+}
+.content_info_myorders_title_left.data-v-0be17cc6 {
+  font-size: 35rpx;
+}
+.content_info_myorders_items.data-v-0be17cc6 {
+  display: flex;
+}
+.content_info_myorders_items_item.data-v-0be17cc6 {
+  width: 20%;
+  text-align: center;
+}
+.content_info_myorders_items_text.data-v-0be17cc6 {
+  width: 20%;
+  height: 40rpx;
+  text-align: center;
+}
+.content_info_myelse.data-v-0be17cc6 {
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 15rpx;
+  box-shadow: 0 0 1rpx 5rpx #a7a7a7;
+  padding: 30rpx 0;
+}
+.content_info_myelse_item.data-v-0be17cc6 {
+  width: 25%;
+  margin-bottom: 20rpx;
+}
+.content_info_myelse_item_text.data-v-0be17cc6 {
+  width: 100%;
+  text-align: center;
+}
+

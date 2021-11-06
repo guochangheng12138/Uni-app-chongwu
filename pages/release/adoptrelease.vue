@@ -103,12 +103,10 @@ export default {
 				sourceType: ['album'], //album 从相册选图，camera 使用相机，默认二者都有。
 				success: res => {
 					let imgFiles = res.tempFilePaths; //图片的本地文件(！！被修改后的，即使两次上传同一图片，每次路径不同！！)路径列表，数组
-
 					// #ifndef H5
 					for (let i in imgFiles) {
 						this.imgurlall.push(imgFiles[i]);
 					}
-					console.log(this.imgurlall);
 					// #endif
 
 					// #ifdef H5

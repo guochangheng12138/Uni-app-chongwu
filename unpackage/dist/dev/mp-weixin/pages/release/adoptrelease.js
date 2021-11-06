@@ -1,6 +1,6 @@
 (global["webpackJsonp"] = global["webpackJsonp"] || []).push([["pages/release/adoptrelease"],{
 
-/***/ 122:
+/***/ 124:
 /*!****************************************************************************!*\
   !*** F:/QD-item/chongwu/main.js?{"page":"pages%2Frelease%2Fadoptrelease"} ***!
   \****************************************************************************/
@@ -236,11 +236,9 @@ var _default =
         success: function success(res) {
           var imgFiles = res.tempFilePaths; //图片的本地文件(！！被修改后的，即使两次上传同一图片，每次路径不同！！)路径列表，数组
 
-
           for (var i in imgFiles) {
             _this.imgurlall.push(imgFiles[i]);
           }
-          console.log(_this.imgurlall);
 
 
 
@@ -364,5 +362,5 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ })
 
-},[[122,"common/runtime","common/vendor"]]]);
+},[[124,"common/runtime","common/vendor"]]]);
 //# sourceMappingURL=../../../.sourcemap/mp-weixin/pages/release/adoptrelease.js.map

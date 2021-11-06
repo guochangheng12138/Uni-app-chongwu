@@ -13,7 +13,9 @@
     "pages/home/selectdetailed",
     "pages/home/lookingpets",
     "pages/home/washing",
-    "pages/release/adoptrelease"
+    "pages/release/adoptrelease",
+    "pages/my/personalinfo",
+    "pages/my/focus"
   ],
   "subPackages": [],
   "window": {
@@ -59,5 +61,6 @@
       "desc": "获取推荐"
     }
   },
-  "usingComponents": {}
+  "usingComponents": {},
+  "sitemapLocation": "sitemap.json"
 }

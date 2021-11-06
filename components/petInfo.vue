@@ -1,20 +1,24 @@
 <template>
 	<view class="content_petinfo">
 		<view class="content_petinfo_item">
-			<image :src=item.imgurl mode="" class="content_petinfo_item_img"></image>
+			<view class="delete iconfont" v-if="selectST" @click="checkchange(index)">
+				<view class="" v-if="!item.check">&#xe603;</view>
+				<view class="" v-if="item.check">&#xe602;</view>
+			</view>
+			<image :src="item.imgurl" mode="" class="content_petinfo_item_img"></image>
 			<view class="content_petinfo_item_info">
 				<view class="content_petinfo_item_info_top">
 					<view class="content_petinfo_item_info_top_left">
-						<view class="content_petinfo_item_info_top_left_a">{{item.title}}</view>
-						<view class="content_petinfo_item_info_top_left_b">{{item.info}}</view>
+						<view class="content_petinfo_item_info_top_left_a">{{ item.title }}</view>
+						<view class="content_petinfo_item_info_top_left_b">{{ item.info }}</view>
 					</view>
-					<view class="content_petinfo_item_info_top_right iconfont" v-if="item.type=='dog'">&#xe670;</view>
-					<view class="content_petinfo_item_info_top_right iconfont" v-if="item.type=='cat'">&#xe69e;</view>
+					<view class="content_petinfo_item_info_top_right iconfont" v-if="item.type == 'dog'">&#xe670;</view>
+					<view class="content_petinfo_item_info_top_right iconfont" v-if="item.type == 'cat'">&#xe69e;</view>
 				</view>
 				<view class="content_petinfo_item_info_under">
-					<view class="content_petinfo_item_info_under_it content_petinfo_item_info_under_a" v-if="item.aaa==true">已绝育</view>
-					<view class="content_petinfo_item_info_under_it content_petinfo_item_info_under_b" v-if="item.bbb==true">已驱虫</view>
-					<view class="content_petinfo_item_info_under_it content_petinfo_item_info_under_c" v-if="item.ccc==true">已免疫</view>
+					<view class="content_petinfo_item_info_under_it content_petinfo_item_info_under_a" v-if="item.aaa == true">已绝育</view>
+					<view class="content_petinfo_item_info_under_it content_petinfo_item_info_under_b" v-if="item.bbb == true">已驱虫</view>
+					<view class="content_petinfo_item_info_under_it content_petinfo_item_info_under_c" v-if="item.ccc == true">已免疫</view>
 				</view>
 			</view>
 		</view>
@@ -24,14 +28,23 @@
 <script>
 export default {
 	name: 'petInfo',
-	props:["item"],
+	props: ['item', 'selectST','index'],
 	data() {
 		return {};
+	},
+	methods:{
+		checkchange(index){
+			this.$emit('checkchange',index);
+		}
 	}
 };
 </script>
 
 <style lang="scss" scoped>
+.delete {
+	width: 50rpx;
+	font-size: 40rpx;
+}
 .content_petinfo {
 	width: 95%;
 	margin: 0 auto 0;

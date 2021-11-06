@@ -92,7 +92,7 @@ var components
 try {
   components = {
     uniNavBar: function() {
-      return __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ 123))
+      return __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ 141))
     }
   }
 } catch (e) {
@@ -178,7 +178,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _adoptrelease = _interopRequireDefault(__webpack_require__(/*! ./adoptrelease */ 29));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var uniNavBar = function uniNavBar() {__webpack_require__.e(/*! require.ensure | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then((function () {return resolve(__webpack_require__(/*! @/components/uni-nav-bar/uni-nav-bar.vue */ 123));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var findrelease = function findrelease() {__webpack_require__.e(/*! require.ensure | pages/release/findrelease */ "pages/release/findrelease").then((function () {return resolve(__webpack_require__(/*! ./findrelease */ 150));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var juanzeng = function juanzeng() {__webpack_require__.e(/*! require.ensure | pages/release/juanzeng */ "pages/release/juanzeng").then((function () {return resolve(__webpack_require__(/*! ./juanzeng */ 157));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+var _adoptrelease = _interopRequireDefault(__webpack_require__(/*! ./adoptrelease */ 29));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var uniNavBar = function uniNavBar() {__webpack_require__.e(/*! require.ensure | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then((function () {return resolve(__webpack_require__(/*! @/components/uni-nav-bar/uni-nav-bar.vue */ 141));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var findrelease = function findrelease() {__webpack_require__.e(/*! require.ensure | pages/release/findrelease */ "pages/release/findrelease").then((function () {return resolve(__webpack_require__(/*! ./findrelease */ 168));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var juanzeng = function juanzeng() {__webpack_require__.e(/*! require.ensure | pages/release/juanzeng */ "pages/release/juanzeng").then((function () {return resolve(__webpack_require__(/*! ./juanzeng */ 175));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
@@ -424,11 +424,9 @@ var _default =
         success: function success(res) {
           var imgFiles = res.tempFilePaths; //图片的本地文件(！！被修改后的，即使两次上传同一图片，每次路径不同！！)路径列表，数组
 
-
           for (var i in imgFiles) {
             _this.imgurlall.push(imgFiles[i]);
           }
-          console.log(_this.imgurlall);
 
 
 
