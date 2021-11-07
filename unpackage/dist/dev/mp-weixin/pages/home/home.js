@@ -107,7 +107,7 @@ var components
 try {
   components = {
     uniNavBar: function() {
-      return __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ 141))
+      return __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ 143))
     }
   }
 } catch (e) {
@@ -162,7 +162,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var uniNavBar = function uniNavBar() {__webpack_require__.e(/*! require.ensure | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then((function () {return resolve(__webpack_require__(/*! @/components/uni-nav-bar/uni-nav-bar.vue */ 141));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var location = function location() {Promise.all(/*! require.ensure | components/location */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/location")]).then((function () {return resolve(__webpack_require__(/*! @/components/location.vue */ 148));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var selectInfo = function selectInfo() {__webpack_require__.e(/*! require.ensure | components/selectInfo */ "components/selectInfo").then((function () {return resolve(__webpack_require__(/*! @/components/selectInfo.vue */ 154));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var petInfo = function petInfo() {__webpack_require__.e(/*! require.ensure | components/petInfo */ "components/petInfo").then((function () {return resolve(__webpack_require__(/*! @/components/petInfo.vue */ 161));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var uniNavBar = function uniNavBar() {__webpack_require__.e(/*! require.ensure | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then((function () {return resolve(__webpack_require__(/*! @/components/uni-nav-bar/uni-nav-bar.vue */ 143));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var location = function location() {Promise.all(/*! require.ensure | components/location */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/location")]).then((function () {return resolve(__webpack_require__(/*! @/components/location.vue */ 150));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var selectInfo = function selectInfo() {__webpack_require__.e(/*! require.ensure | components/selectInfo */ "components/selectInfo").then((function () {return resolve(__webpack_require__(/*! @/components/selectInfo.vue */ 156));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var petInfo = function petInfo() {__webpack_require__.e(/*! require.ensure | components/petInfo */ "components/petInfo").then((function () {return resolve(__webpack_require__(/*! @/components/petInfo.vue */ 163));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 

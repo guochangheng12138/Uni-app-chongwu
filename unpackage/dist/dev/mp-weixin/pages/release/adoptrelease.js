@@ -1,6 +1,6 @@
 (global["webpackJsonp"] = global["webpackJsonp"] || []).push([["pages/release/adoptrelease"],{
 
-/***/ 124:
+/***/ 126:
 /*!****************************************************************************!*\
   !*** F:/QD-item/chongwu/main.js?{"page":"pages%2Frelease%2Fadoptrelease"} ***!
   \****************************************************************************/
@@ -362,5 +362,5 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ })
 
-},[[124,"common/runtime","common/vendor"]]]);
+},[[126,"common/runtime","common/vendor"]]]);
 //# sourceMappingURL=../../../.sourcemap/mp-weixin/pages/release/adoptrelease.js.map

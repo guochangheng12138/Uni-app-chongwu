@@ -19,7 +19,8 @@
 			"path": "pages/store/store",
 			"style": {
 				"navigationBarTitleText": "商城",
-				"enablePullDownRefresh": false
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
 			}
 
 		}, {

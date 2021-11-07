@@ -123,6 +123,7 @@
   font-weight: bolder;
 }
 .content_top.data-v-0766b1d4 {
+  margin-top: 30rpx;
   box-sizing: border-box;
   height: 275rpx;
   margin-bottom: 50rpx;

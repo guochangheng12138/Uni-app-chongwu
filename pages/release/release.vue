@@ -77,6 +77,7 @@ export default {
 		}
 	}
 	&_top {
+		margin-top: 30rpx;
 		box-sizing: border-box;
 		height: 275rpx;
 		margin-bottom: 50rpx;
