@@ -8,15 +8,14 @@
 		<view class="top">
 			<picker class="top_select" mode="selector" :range="array" @change="bindPickerChange" :value="index">
 				<view class="">{{ array[index] }}</view>
-				<view class="top_select_right">
-					>>
-				</view>
+				<view class="top_select_right">>></view>
 			</picker>
 
 			<input type="text" v-model="message" class="input" placeholder="请输入" />
 		</view>
 
 		<view class="submit" @click="handlesubmitmess()">确定</view>
+		<view class="" v-for="(item,index) in list" :key="">姓名：{{ item.name }} 微信：{{ item.wechat }} 电话：{{ item.mobile }}</view>
 	</view>
 </template>
 
@@ -30,45 +29,61 @@ export default {
 	},
 	data() {
 		return {
-			array: ['按真实名称查询', '按电话查询', '按微信名称查询'],
+			blacklist: [],
+			list: [],
+			array: ['按电话查询','按真实名称查询',  '按微信名称查询'],
 			index: 0,
-			message:""
+			message: ''
 		};
 	},
 	methods: {
 		goback() {
-			// uni.navigateTo({
-			// 	url: "./blacklist"
-			// });
 			uni.navigateBack();
+		},
+		blacklistrequest() {
+			uni.request({
+				url: 'https://www.fastmock.site/mock/e2ce4dd970cec7f48ded6abc9b324290/chongwu/home/blacklist/placeout',
+				success: res => {
+					this.blacklist = res.data.data;
+				}
+			});
 		},
 		bindPickerChange: function(e) {
 			this.index = e.target.value;
 		},
 		handlesubmitmess() {
-			uni.request({
-			    url: 'https://www.example.com/request', //仅为示例，并非真实接口地址。
-				 method:"POST",
-				 timeout:10000,
-				 dataType:"json",
-			    header: {
-			        'custom-header': 'hello' //自定义请求头信息
-			    },
-			    data: {
-					  selectIndex:this.array[this.index],
-					  message:this.message,
-			    },
-			    success: (res) => {
-			        console.log(1);
-			    },
-				 fail:()=>{
-					 console.log(2);
-				 }
+			var message = this.message;
+			this.list = this.blacklist.filter(item => {
+				if (item.mobile.toString().indexOf(message.toString()) != -1) {
+					return item;
+				}
 			});
-			uni.navigateTo({
-				url: "./blacklist"
-			});
+			// uni.request({
+			//     url: 'https://www.example.com/request', //仅为示例，并非真实接口地址。
+			// 	 method:"POST",
+			// 	 timeout:10000,
+			// 	 dataType:"json",
+			//     header: {
+			//         'custom-header': 'hello' //自定义请求头信息
+			//     },
+			//     data: {
+			// 		  selectIndex:this.array[this.index],
+			// 		  message:this.message,
+			//     },
+			//     success: (res) => {
+			//         console.log(1);
+			//     },
+			// 	 fail:()=>{
+			// 		 console.log(2);
+			// 	 }
+			// });
+			// uni.navigateTo({
+			// 	url: "./blacklist"
+			// });
 		}
+	},
+	onLoad() {
+		this.blacklistrequest();
 	}
 };
 </script>
@@ -100,7 +115,7 @@ export default {
 		margin-bottom: 50rpx;
 		box-shadow: 0 0 1rpx 3rpx $uni-border-color;
 		display: flex;
-		&_right{
+		&_right {
 			position: absolute;
 			top: 0;
 			right: 10rpx;
