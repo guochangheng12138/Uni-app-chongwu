@@ -48,6 +48,7 @@
   margin-bottom: 50rpx;
   margin-left: -30rpx;
   color: #fff;
+  margin-top: 50rpx;
 }
 .content_info_nav_left.data-v-644d0e6c {
   font-size: 70rpx;

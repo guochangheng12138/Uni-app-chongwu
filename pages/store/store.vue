@@ -81,6 +81,7 @@ export default {
 			margin-bottom: 50rpx;
 			margin-left: -30rpx;
 			color: #fff;
+			margin-top: 50rpx;
 			&_left {
 				font-size: 70rpx;
 			}

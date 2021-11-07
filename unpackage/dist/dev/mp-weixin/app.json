@@ -61,5 +61,6 @@
       "desc": "获取推荐"
     }
   },
-  "usingComponents": {}
+  "usingComponents": {},
+  "sitemapLocation": "sitemap.json"
 }
