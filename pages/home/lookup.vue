@@ -15,7 +15,7 @@
 		</view>
 
 		<view class="submit" @click="handlesubmitmess()">确定</view>
-		<view class="" v-for="(item,index) in list" :key="">姓名：{{ item.name }} 微信：{{ item.wechat }} 电话：{{ item.mobile }}</view>
+		<view class="" v-for="(item,index) in list" :key="index">姓名：{{ item.name }} 微信：{{ item.wechat }} 电话：{{ item.mobile }}</view>
 	</view>
 </template>
 
